@@ -1,0 +1,31 @@
+name: Initialize Hugo Site
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create Hugo structure
+        run: |
+          mkdir -p config/_default
+          mkdir -p content layouts static themes assets
+          echo 'baseURL = "https://example.com"
+                languageCode = "en-us"
+                title = "Blowfish Starter"
+                theme = "blowfish"' > config/_default/hugo.toml
+          echo '---
+                title: "Home"
+                ---' > content/_index.md
+      - name: Commit files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Initialize Hugo structure"
+          git push
