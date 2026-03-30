@@ -1,2 +1,2 @@
-# blowfish-starter-template
-Blowfish Starter Template (Hugo Site Theme)
+# Blowfish Starter Template
+[Hugo](https://gohugo.io) Site Theme: [Blowfish](https://blowfish.page)
