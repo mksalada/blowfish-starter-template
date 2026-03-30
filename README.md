@@ -3,3 +3,4 @@
 
 [![Initialize Hugo Site](https://github.com/mksalada/blowfish-starter-template/actions/workflows/hugo.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/hugo.yml)
 [![Get Blowfish Theme](https://github.com/mksalada/blowfish-starter-template/actions/workflows/blowfish.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/blowfish.yml)
+[![Get Blowfish Config](https://github.com/mksalada/blowfish-starter-template/actions/workflows/config.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/config.yml)
