@@ -1,0 +1,15 @@
+# Hugo
+/public/
+resources/_gen/
+.hugo_build.lock
+.hugo_cache/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node
+node_modules/
+package-lock.json
