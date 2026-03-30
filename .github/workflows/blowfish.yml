@@ -1,0 +1,33 @@
+name: Get Blowfish Theme
+
+on:
+  workflow_dispatch:
+
+jobs:
+  download-theme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download Blowfish
+        run: |
+          rm -rf themes/blowfish
+          git clone https://github.com/nunocoracao/blowfish.git themes/blowfish
+      - name: Remove .git folder
+        run: rm -rf themes/blowfish/.git
+
+      - name: Commit if changes exist
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add themes/blowfish
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Add Blowfish theme"
+            git push
+          fi
