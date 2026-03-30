@@ -1,6 +1,6 @@
 # Blowfish Starter Template
-[Hugo](https://gohugo.io) Site Theme: [Blowfish](https://blowfish.page)
 
-[![Initialize Hugo Site](https://github.com/mksalada/blowfish-starter-template/actions/workflows/hugo.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/hugo.yml)
-[![Get Blowfish Theme](https://github.com/mksalada/blowfish-starter-template/actions/workflows/blowfish.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/blowfish.yml)
-[![Get Blowfish Config](https://github.com/mksalada/blowfish-starter-template/actions/workflows/config.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/config.yml)
+![Hugo Version](https://img.shields.io/badge/Hugo-0.154.5-0B2D40?style=flat-square&logo=hugo&logoColor=white)
+![Blowfish Release](https://img.shields.io/badge/Blowfish-v2.100.0-0B2D40?style=flat-square)
+
+A minimal [Hugo](https://gohugo.io) template using the [Blowfish](https://blowfish.page) theme ready for GitHub Pages, Netlify, Cloudflare Pages, Vercel, and Render.
