@@ -15,14 +15,20 @@ jobs:
 
       - name: Download config zip
         run: |
-          curl -L -o config.zip https://github.com/nunocoracao/blowfish/releases/latest/download/config-default.zip
+          curl -L -o config-default.zip https://github.com/nunocoracao/blowfish/releases/latest/download/config-default.zip
 
-      - name: Extract config
+      - name: Clean existing config
         run: |
-          rm -rf config/_default/*
-          unzip config.zip -d config/_default
+          rm -rf config/_default
+          mkdir -p config/_default
 
-      - name: Commit if changes exist
+      - name: Extract config properly
+        run: |
+          unzip config-default.zip -d temp-config
+          cp -r temp-config/config/_default/* config/_default/
+          rm -rf temp-config config-default.zip
+
+      - name: Commit updated config
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
@@ -32,6 +38,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Add Blowfish default config"
+            git commit -m "Update Blowfish default config"
             git push
           fi
