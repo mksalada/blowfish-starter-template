@@ -69,7 +69,7 @@ Uses the included `render.sh`
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-222222?style=for-the-badge&logo=github)](https://mksalada.github.io/blowfish-starter-template/)
 
 - Uses GitHub Actions (`.github/workflows/gh-pages.yml`)
-‐ Automatically installs Hugo Extended
+- Automatically installs Hugo Extended
 - Automatically builds and deploys
 
 No additional setup required ✅
@@ -97,7 +97,7 @@ Hugo Extended
 
 - Blowfish requires Hugo Extended for SCSS support
 - All builds output to the `public/` directory
-‐ Designed to work without modifying configuration files
+- Designed to work without modifying configuration files
 - Works on both root domains and project subpaths
 
 ### ✅ Template Ready Checklist
