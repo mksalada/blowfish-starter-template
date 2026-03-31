@@ -2,8 +2,8 @@
 
 > ⚡ A plug-and-play Hugo + Blowfish starter template that works on GitHub Pages, Netlify, Vercel, Render, and Cloudflare Pages.
 
-[![Hugo](https://img.shields.io/badge/Hugo-0.155.3-ff4088?style=for-the-badge&logo=hugo)](https://gohugo.io)
-[![Blowfish](https://img.shields.io/badge/Blowfish-v2.100.0-blue?style=for-the-badge)](https://blowfish.page)
+[![Hugo](https://img.shields.io/badge/Hugo-0.155.3-ff4088?style=for-the-badge&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.155.3)
+[![Blowfish](https://img.shields.io/badge/Blowfish-v2.100.0-blue?style=for-the-badge)](https://github.com/nunocoracao/blowfish/releases/tag/v2.100.0)
 [![Deploy](https://img.shields.io/badge/Deploy-Multi--Platform-green?style=for-the-badge)](#-deploy-anywhere)
 
 ### 🌍 Live Demo
