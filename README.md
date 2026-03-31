@@ -2,7 +2,7 @@
 
 > ⚡ A plug-and-play Hugo + Blowfish starter template that works on GitHub Pages, Netlify, Vercel, Render, and Cloudflare Pages.
 
-[![Hugo](https://img.shields.io/badge/Hugo-0.155.3-ff4088?style=for-the-badge&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.155.3)
+[![Hugo](https://img.shields.io/badge/Hugo%20Extended-0.155.3-ff4088?style=for-the-badge&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.155.3)
 [![Blowfish](https://img.shields.io/badge/Blowfish-v2.100.0-blue?style=for-the-badge)](https://github.com/nunocoracao/blowfish/releases/tag/v2.100.0)
 [![Deploy](https://img.shields.io/badge/Deploy-Multi--Platform-green?style=for-the-badge)](#-deploy-anywhere)
 
@@ -123,4 +123,4 @@ Hugo Extended
 
 ### ⭐ Support
 
-If you found [this](https://github.com/mksalada/blowfish-starter-template) useful, consider giving this repo a ⭐!
+If you found this useful, consider giving [this repo](https://github.com/mksalada/blowfish-starter-template) a ⭐!
