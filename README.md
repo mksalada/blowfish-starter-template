@@ -17,17 +17,17 @@
 ### 🚀 Features
 
 - ⚡ Hugo Extended ready (SCSS supported)
-- 🎨 Pre-configured with Blowfish theme
-- 🌐 Deploy anywhere (multi-platform support)
+- 🎨 Pre-configured with Blowfish theme ([`config/_default`](https://github.com/mksalada/blowfish-starter-template/blob/main/config/_default/))
+- 🌐 [Deploy anywhere (multi-platform support)](#-deploy-anywhere)
 - 🔧 Minimal setup required
-- 📦 Clean project structure
-- 🧩 GitHub Actions included (for Pages)
+- 📦 Clean [project structure](#-project-structure)
+- 🧩 GitHub Actions included (for GitHub Pages: [`gh-pages.yml`](https://github.com/mksalada/blowfish-starter-template/blob/main/.github/workflows/gh-pages.yml))
 
 ## 📦 Getting Started
 
 1. Click **"Use this template"**
 2. Create your own repository
-3. Deploy to your preferred platform (see below)
+3. Deploy to your preferred platform ([see below](#-deploy-anywhere))
 
 ## 🚀 Deploy Anywhere
 
@@ -77,6 +77,7 @@ No additional setup required ✅
 ## ⚙️ Requirements
 
 Hugo Extended
+[![Hugo](https://img.shields.io/badge/Hugo%20Extended-0.155.3-ff4088?style=for-the-badge&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.155.3)
 - Recommended version: `0.155.3` or newer
 
 ### 📁 Project Structure
