@@ -2,6 +2,8 @@ name: GitHub Pages Deployment
 
 on:
   workflow_dispatch:
+  push:
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -19,39 +21,65 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    outputs:
+      pages_enabled: ${{ steps.check_pages.outputs.enabled }}
+
     steps:
+      - name: Check if GitHub Pages is enabled
+        id: check_pages
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/pages)
+
+          if [ "$STATUS" -eq 200 ]; then
+            echo "enabled=true" >> $GITHUB_OUTPUT
+            echo "GitHub Pages is enabled. Continuing build..."
+          else
+            echo "enabled=false" >> $GITHUB_OUTPUT
+            echo "GitHub Pages is NOT enabled. Skipping build."
+          fi
+
+      - name: Stop if Pages is not enabled
+        if: steps.check_pages.outputs.enabled != 'true'
+        run: exit 0
 
       - name: Hugo setup
+        if: steps.check_pages.outputs.enabled == 'true'
         uses: peaceiris/actions-hugo@v2.6.0
         with: 
           hugo-version: 0.142.0
           extended: true
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
-      - name: Check out code into the Go module directory
+      - name: Check out code
+        if: steps.check_pages.outputs.enabled == 'true'
         uses: actions/checkout@v4
         with:
           submodules: false 
           fetch-depth: 0
 
       - name: Setup Pages
+        if: steps.check_pages.outputs.enabled == 'true'
         id: pages
         uses: actions/configure-pages@v2
 
       - name: Build with Hugo
+        if: steps.check_pages.outputs.enabled == 'true'
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
           hugo -d ./public --baseURL "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-    
+
       - name: Upload artifact
+        if: steps.check_pages.outputs.enabled == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
   deploy:
+    if: needs.build.outputs.pages_enabled == 'true'
     environment:
       name: github-pages
       url: "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
