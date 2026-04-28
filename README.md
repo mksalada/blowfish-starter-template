@@ -14,7 +14,7 @@
 - Status 🫴 [![Netlify Status](https://api.netlify.com/api/v1/badges/3e049ccb-9ec4-401b-aace-f1bf0d234f0e/deploy-status)](https://app.netlify.com/projects/blowfish-starter-template/deploys)
 [![GitHub Pages Deployment](https://github.com/mksalada/blowfish-starter-template/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/gh-pages.yml)
 
-### 🚀 Features
+### ✨️ Features
 
 - ⚡ Hugo Extended ready (SCSS supported)
 - 🎨 Pre-configured with Blowfish theme ([`config/_default`](https://github.com/mksalada/blowfish-starter-template/blob/main/config/_default/))
@@ -33,6 +33,25 @@
 
 This template works across multiple platforms out-of-the-box:
 
+### ⚫ GitHub Pages
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-222222?style=for-the-badge&logo=github)](https://mksalada.github.io/blowfish-starter-template/)
+
+1. Go to **Settings → Pages**
+2. Set **Source → GitHub Actions**
+3. Push (or re-run workflow)
+
+- Your site will be live at: `https://<your-username>.github.io/<repo-name>`
+- The workflow in `.github/workflows/gh-pages.yml` will automatically build and deploy your site once you **run** it.
+
+> [!TIP]
+> 💡 Optional: Enable automatic theme updates  
+> 
+> Go to **Settings → Actions → General** and enable:
+> - [x] Read and write permissions  
+> - [x] Allow GitHub Actions to create and approve pull requests  
+> 
+> This enables `.github/workflows/update-blowfish.yml` to create PRs when Blowfish updates.
+
 ### 🌐 Cloudflare Pages
 [![Cloudflare](https://img.shields.io/badge/Cloudflare%20Pages-Ready-F38020?style=for-the-badge&logo=cloudflare)](https://blowfish-starter-template.pages.dev)
 
@@ -42,6 +61,7 @@ This template works across multiple platforms out-of-the-box:
 
 ### 🟣 Netlify
 [![Netlify](https://img.shields.io/badge/Netlify-Ready-00C7B7?style=for-the-badge&logo=netlify)](https://blowfish-starter-template.netlify.app)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mksalada/blowfish-starter-template)
 
 Uses the included `netlify.toml`
 
@@ -56,6 +76,7 @@ HUGO_VERSION = "0.155.3"
 
 ### 🔺 Vercel
 [![Vercel](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)](https://blowfish-starter-template.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mksalada/blowfish-starter-template)
 
 Set this Environment Variable: `HUGO_VERSION = 0.155.3`
 
@@ -64,15 +85,6 @@ Set this Environment Variable: `HUGO_VERSION = 0.155.3`
 
 Uses the included `render.sh`
 - Build command: `bash render.sh`
-
-### ⚫ GitHub Pages
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-222222?style=for-the-badge&logo=github)](https://mksalada.github.io/blowfish-starter-template/)
-
-- Uses GitHub Actions (`.github/workflows/gh-pages.yml`)
-- Automatically installs Hugo Extended
-- Automatically builds and deploys
-
-No additional setup required ✅
 
 ## ⚙️ Requirements
 
