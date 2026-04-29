@@ -29,6 +29,8 @@
 2. Create your own repository
 3. Deploy to your preferred platform ([see below](#-deploy-anywhere))
 
+___
+
 ## 🚀 Deploy Anywhere
 
 This template works across multiple platforms out-of-the-box:
@@ -36,21 +38,22 @@ This template works across multiple platforms out-of-the-box:
 ### ⚫ GitHub Pages
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-222222?style=for-the-badge&logo=github)](https://mksalada.github.io/blowfish-starter-template/)
 
-1. Go to **Settings → Pages**
-2. Set **Source → GitHub Actions**
+1. Go to **Settings**, then **Pages**
+2. Set **Source** to **GitHub Actions**
 3. Push (or re-run workflow)
 
-- Your site will be live at: `https://<your-username>.github.io/<repo-name>`
-- The workflow in `.github/workflows/gh-pages.yml` will automatically build and deploy your site once you **run** it.
+Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
+
+ℹ️ The workflow in `.github/workflows/gh-pages.yml` will automatically build and deploy your site.
 
 > [!TIP]
-> 💡 Optional: Enable automatic theme updates  
+> #### Enable automatic theme updates (Optional)
 > 
 > Go to **Settings → Actions → General** and enable:
 > - [x] Read and write permissions  
 > - [x] Allow GitHub Actions to create and approve pull requests  
 > 
-> This enables `.github/workflows/update-blowfish.yml` to create PRs when Blowfish updates.
+> This enables `update-blowfish.yml` to create PRs when Blowfish updates.
 
 ### 🌐 Cloudflare Pages
 [![Cloudflare](https://img.shields.io/badge/Cloudflare%20Pages-Ready-F38020?style=for-the-badge&logo=cloudflare)](https://blowfish-starter-template.pages.dev)
