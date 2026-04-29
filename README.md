@@ -66,7 +66,10 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 4. Deploy
 
 > [!TIP]
-> Change build command to `hugo --gc --minify` (Optional)
+> (Optional) Change build command to:
+> ```cmd
+> hugo --gc --minify
+> ```
 
 ### 🐦 Netlify
 [![Netlify](https://img.shields.io/badge/Netlify-Ready-00C7B7?style=for-the-badge&logo=netlify)](https://blowfish-starter-template.netlify.app)
@@ -77,18 +80,33 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 
 The included [`netlify.toml`](https://github.com/mksalada/blowfish-starter-template/blob/main/netlify.toml) handles everything automatically.
 
----
 ### ⚫️ Vercel
 [![Vercel](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)](https://blowfish-starter-template.vercel.app)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mksalada/blowfish-starter-template)
 
-Set this Environment Variable: `HUGO_VERSION = 0.155.3`
+1. Import your repo  
+2. Deploy  
+
+> [!TIP]
+> (Optional) Add an Environment Variable:
+> ```env
+> HUGO_VERSION=0.155.3
+> ```
 
 ### 🟢 Render
 [![Render](https://img.shields.io/badge/Render-Ready-46E3B7?style=for-the-badge&logo=render)](https://blowfish-starter-template.onrender.com)
 
-Uses the included [`render.sh`](https://github.com/mksalada/blowfish-starter-template/blob/main/render.sh)
-- Build command: `bash render.sh`
+1. Create a Static Site
+2. Connect your repository
+3. Set build command to:
+```bash
+bash render.sh
+```
+
+The included [`render.sh`](https://github.com/mksalada/blowfish-starter-template/blob/main/render.sh) handles the build setup.
+
+---
+
 
 ## ⚙️ Requirements
 
