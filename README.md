@@ -121,22 +121,17 @@ So your site:
 - 🚀 Doesn’t break on first deploy  
 - 🔧 Requires no initial setup  
 
----
+> [!IMPORTANT]
+> - [Blowfish](https://github.com/nunocoracao/blowfish) requires **Hugo Extended** for SCSS support
+>   - Recommended version: `0.155.3` or newer
+> - All builds output to the `public/` directory
+> - 🔧 Designed to work without modifying configuration files
+> - 📦 Works on both root domains and project subpaths
 
 ### ✏️ Customize Your Site
 Head over to **Blowfish Documentations**: [Basic Configuration](https://blowfish.page/docs/getting-started/#basic-configuration)
 
-### 💡 Notes
-- [Blowfish](https://github.com/nunocoracao/blowfish) requires **Hugo Extended** for SCSS support
-  - Recommended version: `0.155.3` or newer
-- All builds output to the `public/` directory
-- 🔧 Designed to work without modifying configuration files
-- 📦 Works on both root domains and project subpaths
-
-> [!NOTE]
-> Curious how this was built (from a phone 😅)?
-> 
-> 👉 Read the devlog: [Building a Blowfish Starter Template](https://tina.is-a.dev/posts/building-blowfish-starter-template)
+___
 
 ## 🙌 Credits
 - [Hugo](https://gohugo.io) Static Site Generator
@@ -145,3 +140,8 @@ Head over to **Blowfish Documentations**: [Basic Configuration](https://blowfish
 
 ### ⭐ Support
 If you found this useful, consider giving [this repo](https://github.com/mksalada/blowfish-starter-template) a ⭐!
+
+> [!NOTE]
+> Curious how this was built (from a phone 😅)?
+> 
+> 👉 Read the devlog: [Building a Blowfish Starter Template](https://tina.is-a.dev/posts/building-blowfish-starter-template)
