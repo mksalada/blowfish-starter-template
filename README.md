@@ -36,7 +36,7 @@ This template works across multiple platforms out-of-the-box:
 Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 
 > [!NOTE]
-> The workflow in [`gh-pages.yml`](https://github.com/mksalada/blowfish-starter-template/blob/main/.github/workflows/gh-pages.yml) will automatically build and deploy your site.
+> The workflow in [`gh-pages.yml`](.github/workflows/gh-pages.yml) will automatically build and deploy your site.
 
 > [!TIP]
 > #### Enable automatic theme updates (Optional)
@@ -45,7 +45,7 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 > - [x] Read and write permissions  
 > - [x] Allow GitHub Actions to create and approve pull requests  
 > 
-> This enables `update-blowfish.yml` to create PRs when Blowfish updates.
+> This enables [`update-blowfish.yml`](.github/workflows/update-blowfish.yml) to create PRs when Blowfish updates.
 
 ### ☁️ Cloudflare Pages
 [![Cloudflare](https://img.shields.io/badge/Cloudflare%20Pages-Ready-F38020?style=for-the-badge&logo=cloudflare)](https://blowfish-starter-template.pages.dev)
@@ -71,7 +71,7 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 2. Deploy  
 
 > [!NOTE]
-> The included [`netlify.toml`](https://github.com/mksalada/blowfish-starter-template/blob/main/netlify.toml) handles everything automatically.
+> The included [`netlify.toml`](netlify.toml) handles everything automatically.
 
 ### ⚫️ Vercel
 [![Vercel](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)](https://blowfish-starter-template.vercel.app)
@@ -97,7 +97,7 @@ bash render.sh
 ```
 
 > [!NOTE]
-> The included [`render.sh`](https://github.com/mksalada/blowfish-starter-template/blob/main/render.sh) handles the build setup.
+> The included [`render.sh`](render.sh) handles the build setup.
 
 ___
 
@@ -113,8 +113,8 @@ ___
 ```
 
 This template already includes:
-- ⚙️ Pre-configured [`config/_default`](https://github.com/mksalada/blowfish-starter-template/blob/main/config/_default)
-- 📍 A ready homepage ([`content/_index.md`](https://github.com/mksalada/blowfish-starter-template/blob/main/content/_index.md))  
+- ⚙️ Pre-configured [`config/_default`](config/_default)
+- 📍 A ready homepage ([`content/_index.md`](content/_index.md))  
 
 So your site:
 - ⚡️ Builds immediately  
@@ -144,4 +144,4 @@ If you found this useful, consider giving [this repo](https://github.com/mksalad
 > [!NOTE]
 > Curious how this was built (from a phone 😅)?
 > 
-> 👉 Read the devlog: [Building a Blowfish Starter Template](https://tina.is-a.dev/posts/building-blowfish-starter-template)
+> 👉 Read the devlog: [Building a Blowfish Starter Template](https://mks.hashnode.dev/building-blowfish-starter-template)
