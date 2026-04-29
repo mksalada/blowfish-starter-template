@@ -5,29 +5,21 @@
 [![Blowfish](https://img.shields.io/badge/Blowfish-v2.100.0-blue?style=for-the-badge)](https://github.com/nunocoracao/blowfish/releases/tag/v2.100.0)
 [![Deploy](https://img.shields.io/badge/Deploy-Multi--Platform-green?style=for-the-badge)](#-deploy-anywhere)
 
-### 🌍 Live Demo
-Check out the live version of this template:
-- Demo 👉 [blowfish-starter-template](https://blowfish-starter-template.netlify.app)
-- Status 🫴 [![Netlify Status](https://api.netlify.com/api/v1/badges/3e049ccb-9ec4-401b-aace-f1bf0d234f0e/deploy-status)](https://app.netlify.com/projects/blowfish-starter-template/deploys)
-[![GitHub Pages Deployment](https://github.com/mksalada/blowfish-starter-template/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/gh-pages.yml)
-
-### ✨️ Features
-- ⚡ Hugo Extended ready (SCSS supported)
-- 🎨 Pre-configured with Blowfish theme ([`config/_default`](https://github.com/mksalada/blowfish-starter-template/blob/main/config/_default/))
-- 🌐 [Deploy anywhere (multi-platform support)](#-deployment-guide)
-- 🔧 Minimal setup required
-- 📦 Clean [project structure](#-project-structure)
-- 🧩 GitHub Actions included (for GitHub Pages: [`gh-pages.yml`](https://github.com/mksalada/blowfish-starter-template/blob/main/.github/workflows/gh-pages.yml))
-
 ## ⚡️ Quick Start
 1. 👆 Click **"Use this template"**
 2. 📦 Create your own repository
-3. 🚀 Deploy to your preferred platform ([see below](#-deployment-guide))
+3. 🚀 Deploy to your preferred platform:
    - [GitHub Pages](#-github-pages)
    - [Cloudflare Pages](#%EF%B8%8F-cloudflare-pages)
    - [Netlify](#-netlify)
    - [Vercel](#%EF%B8%8F-vercel)
    - [Render](#-render)
+
+### 🌍 Live Demo
+Check out the live version of this template:
+- Demo 👉 [blowfish-starter-template.netlify.app](https://blowfish-starter-template.netlify.app)
+- Status 🫴 [![Netlify Status](https://api.netlify.com/api/v1/badges/3e049ccb-9ec4-401b-aace-f1bf0d234f0e/deploy-status)](https://app.netlify.com/projects/blowfish-starter-template/deploys)
+[![GitHub Pages Deployment](https://github.com/mksalada/blowfish-starter-template/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/gh-pages.yml)
 
 ___
 
@@ -43,7 +35,8 @@ This template works across multiple platforms out-of-the-box:
 
 Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 
-ℹ️ The workflow in `.github/workflows/gh-pages.yml` will automatically build and deploy your site.
+> [!NOTE]
+> The workflow in [`gh-pages.yml`](https://github.com/mksalada/blowfish-starter-template/blob/main/.github/workflows/gh-pages.yml) will automatically build and deploy your site.
 
 > [!TIP]
 > #### Enable automatic theme updates (Optional)
@@ -77,7 +70,8 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 1. Import your repo  
 2. Deploy  
 
-ℹ️ The included [`netlify.toml`](https://github.com/mksalada/blowfish-starter-template/blob/main/netlify.toml) handles everything automatically.
+> [!NOTE]
+> The included [`netlify.toml`](https://github.com/mksalada/blowfish-starter-template/blob/main/netlify.toml) handles everything automatically.
 
 ### ⚫️ Vercel
 [![Vercel](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)](https://blowfish-starter-template.vercel.app)
@@ -102,11 +96,12 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 bash render.sh
 ```
 
-ℹ️ The included [`render.sh`](https://github.com/mksalada/blowfish-starter-template/blob/main/render.sh) handles the build setup.
+> [!NOTE]
+> The included [`render.sh`](https://github.com/mksalada/blowfish-starter-template/blob/main/render.sh) handles the build setup.
 
 ___
 
-### 📁 Project Structure
+## 📁 Project Structure
 ```
 .
 ├── config/_default/     # Hugo configuration
@@ -138,9 +133,10 @@ Head over to **Blowfish Documentations**: [Basic Configuration](https://blowfish
 - 🔧 Designed to work without modifying configuration files
 - 📦 Works on both root domains and project subpaths
 
-Curious how this was built (from a phone 😅)?
-
-👉 Read the devlog: Building a Blowfish Starter Template (from my phone 🤯)
+> [!NOTE]
+> Curious how this was built (from a phone 😅)?
+> 
+> 👉 Read the devlog: [Building a Blowfish Starter Template](https://tina.is-a.dev/posts/building-blowfish-starter-template)
 
 ## 🙌 Credits
 - [Hugo](https://gohugo.io) Static Site Generator
