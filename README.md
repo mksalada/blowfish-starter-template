@@ -23,15 +23,20 @@
 - 📦 Clean [project structure](#-project-structure)
 - 🧩 GitHub Actions included (for GitHub Pages: [`gh-pages.yml`](https://github.com/mksalada/blowfish-starter-template/blob/main/.github/workflows/gh-pages.yml))
 
-## 📦 Getting Started
+## ⚡️ Quick Start
 
 1. Click **"Use this template"**
 2. Create your own repository
-3. Deploy to your preferred platform ([see below](#-deploy-anywhere))
+3. Deploy to your preferred platform ([see below](#-deployment-guide))
+   - [GitHub Pages](#-github-pages)
+   - [Cloudflare Pages](#%EF%B8%8F-cloudflare-pages)
+   - [Netlify](#-netlify)
+   - [Vercel](#%EF%B8%8F-vercel)
+   - [Render](#-render)
 
 ___
 
-## 🚀 Deploy Anywhere
+## 🚀 Deployment Guide
 
 This template works across multiple platforms out-of-the-box:
 
