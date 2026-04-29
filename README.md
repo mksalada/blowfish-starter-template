@@ -35,7 +35,7 @@ ___
 
 This template works across multiple platforms out-of-the-box:
 
-### ⚫ GitHub Pages
+### 😺 GitHub Pages
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-222222?style=for-the-badge&logo=github)](https://mksalada.github.io/blowfish-starter-template/)
 
 1. Go to **Settings**, then **Pages**
@@ -55,14 +55,14 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 > 
 > This enables `update-blowfish.yml` to create PRs when Blowfish updates.
 
-### 🌐 Cloudflare Pages
+### ☁️ Cloudflare Pages
 [![Cloudflare](https://img.shields.io/badge/Cloudflare%20Pages-Ready-F38020?style=for-the-badge&logo=cloudflare)](https://blowfish-starter-template.pages.dev)
 
 - No configuration needed  
 - Build command: `hugo --gc --minify`
 - Output directory: `public`
 
-### 🟣 Netlify
+### 🐦 Netlify
 [![Netlify](https://img.shields.io/badge/Netlify-Ready-00C7B7?style=for-the-badge&logo=netlify)](https://blowfish-starter-template.netlify.app)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mksalada/blowfish-starter-template)
 
@@ -77,13 +77,13 @@ publish = "public"
 HUGO_VERSION = "0.155.3"
 ```
 
-### 🔺 Vercel
+### ⚫️ Vercel
 [![Vercel](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)](https://blowfish-starter-template.vercel.app)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mksalada/blowfish-starter-template)
 
 Set this Environment Variable: `HUGO_VERSION = 0.155.3`
 
-### 🟠 Render
+### 🟢 Render
 [![Render](https://img.shields.io/badge/Render-Ready-46E3B7?style=for-the-badge&logo=render)](https://blowfish-starter-template.onrender.com)
 
 Uses the included `render.sh`
