@@ -1,5 +1,4 @@
 # 🐡 Blowfish Starter Template
-
 > ⚡ A plug-and-play Hugo + Blowfish starter template that works on GitHub Pages, Netlify, Vercel, Render, and Cloudflare Pages.
 
 [![Hugo](https://img.shields.io/badge/Hugo%20Extended-0.155.3-ff4088?style=for-the-badge&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.155.3)
@@ -7,15 +6,12 @@
 [![Deploy](https://img.shields.io/badge/Deploy-Multi--Platform-green?style=for-the-badge)](#-deploy-anywhere)
 
 ### 🌍 Live Demo
-
 🚀 Check out the live version of this template:
-
 - Demo 👉 https://blowfish-starter-template.netlify.app
 - Status 🫴 [![Netlify Status](https://api.netlify.com/api/v1/badges/3e049ccb-9ec4-401b-aace-f1bf0d234f0e/deploy-status)](https://app.netlify.com/projects/blowfish-starter-template/deploys)
 [![GitHub Pages Deployment](https://github.com/mksalada/blowfish-starter-template/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/mksalada/blowfish-starter-template/actions/workflows/gh-pages.yml)
 
 ### ✨️ Features
-
 - ⚡ Hugo Extended ready (SCSS supported)
 - 🎨 Pre-configured with Blowfish theme ([`config/_default`](https://github.com/mksalada/blowfish-starter-template/blob/main/config/_default/))
 - 🌐 [Deploy anywhere (multi-platform support)](#-deploy-anywhere)
@@ -24,7 +20,6 @@
 - 🧩 GitHub Actions included (for GitHub Pages: [`gh-pages.yml`](https://github.com/mksalada/blowfish-starter-template/blob/main/.github/workflows/gh-pages.yml))
 
 ## ⚡️ Quick Start
-
 1. Click **"Use this template"**
 2. Create your own repository
 3. Deploy to your preferred platform ([see below](#-deployment-guide))
@@ -37,7 +32,6 @@
 ___
 
 ## 🚀 Deployment Guide
-
 This template works across multiple platforms out-of-the-box:
 
 ### 😺 GitHub Pages
@@ -112,55 +106,42 @@ The included [`render.sh`](https://github.com/mksalada/blowfish-starter-template
 
 ---
 
-
-## ⚙️ Requirements
-
-Hugo Extended
-[![Hugo](https://img.shields.io/badge/Hugo%20Extended-0.155.3-ff4088?style=for-the-badge&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.155.3)
-- Recommended version: `0.155.3` or newer
-
 ### 📁 Project Structure
-
 ```
 .
 ├── config/_default/     # Hugo configuration
 ├── content/             # Site content
 ├── themes/blowfish/     # Blowfish theme
-├── static/              # Static assets
-├── public/              # Generated site (ignored)
 ├── render.sh            # Render build script
 ├── netlify.toml         # Netlify config
 └── .github/workflows/   # GitHub Actions
 ```
 
-## 💡 Notes
+This template already includes:
+- Pre-configured [`config/_default`](https://github.com/mksalada/blowfish-starter-template/blob/main/config/_default)
+- A ready homepage ([`content/_index.md`](https://github.com/mksalada/blowfish-starter-template/blob/main/content/_index.md))  
 
-- Blowfish requires Hugo Extended for SCSS support
+So your site:
+- Builds immediately  
+- Doesn’t break on first deploy  
+- Requires no initial setup  
+
+---
+
+## ✏️ Customize Your Site
+Head over to **Blowfish Documentations**: [Basic Configuration](https://blowfish.page/docs/getting-started/#basic-configuration)
+
+## 💡 Notes
+- [Blowfish](https://github.com/nunocoracao/blowfish) requires **Hugo Extended** for SCSS support
+  - Recommended version: `0.155.3` or newer
 - All builds output to the `public/` directory
 - Designed to work without modifying configuration files
 - Works on both root domains and project subpaths
 
-### ✅ Template Ready Checklist
-
-- [x] Blowfish theme included
-- [x] Default config preloaded
-- [x] Hugo Extended supported
-- [x] Multi-platform deployment ready
-- [x] GitHub Actions configured
-- [x] Example content included
-
-### 🔮 Future Improvements (Optional)
-
-- Auto-update Blowfish theme workflow
-- Demo content / sample blog posts
-- Multi-language support
-
 ## 🙌 Credits
-
 - [Hugo](https://gohugo.io) Static Site Generator
 - [Blowfish](https://github.com/nunocoracao/blowfish) Theme by [Nuno Coracao](https://github.com/nunocoracao)
 [![Blowfish](https://img.shields.io/badge/Hugo--Themes-@Blowfish-blue)](https://themes.gohugo.io/themes/blowfish/)
 
 ### ⭐ Support
-
 If you found this useful, consider giving [this repo](https://github.com/mksalada/blowfish-starter-template) a ⭐!
