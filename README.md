@@ -38,7 +38,7 @@ This template works across multiple platforms out-of-the-box:
 ### 😺 GitHub Pages
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-222222?style=for-the-badge&logo=github)](https://mksalada.github.io/blowfish-starter-template/)
 
-1. Go to **Settings**, then **Pages**
+1. Go to **Settings → Pages**
 2. Set **Source** to **GitHub Actions**
 3. Push (or re-run workflow)
 
@@ -58,9 +58,15 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 ### ☁️ Cloudflare Pages
 [![Cloudflare](https://img.shields.io/badge/Cloudflare%20Pages-Ready-F38020?style=for-the-badge&logo=cloudflare)](https://blowfish-starter-template.pages.dev)
 
-- No configuration needed  
-- Build command: `hugo --gc --minify`
-- Output directory: `public`
+1. Create a new project *(with Pages, not Workers)*
+2. Connect your repository
+3. Set framework to **Hugo**
+   - Build command: `hugo`
+   - Output directory: `public`
+4. Deploy
+
+> [!TIP]
+> Change build command to `hugo --gc --minify` (Optional)
 
 ### 🐦 Netlify
 [![Netlify](https://img.shields.io/badge/Netlify-Ready-00C7B7?style=for-the-badge&logo=netlify)](https://blowfish-starter-template.netlify.app)
