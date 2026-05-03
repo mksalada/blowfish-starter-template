@@ -1,4 +1,4 @@
-/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
 /*! Blowfish | MIT License | https://github.com/nunocoracao/blowfish */
 @layer properties;
 @layer theme, base, components, utilities;
@@ -1150,6 +1150,9 @@
   .h-84 {
     height: calc(var(--spacing) * 84);
   }
+  .h-120 {
+    height: calc(var(--spacing) * 120);
+  }
   .h-\[3px\] {
     height: 3px;
   }
@@ -1666,8 +1669,14 @@
   .border-primary-500 {
     border-color: rgba(var(--color-primary-500), 1);
   }
+  .border-secondary-400 {
+    border-color: rgba(var(--color-secondary-400), 1);
+  }
   .border-secondary-500 {
     border-color: rgba(var(--color-secondary-500), 1);
+  }
+  .border-secondary-600 {
+    border-color: rgba(var(--color-secondary-600), 1);
   }
   .border-transparent {
     border-color: transparent;
@@ -2181,6 +2190,12 @@
   .text-primary-800 {
     color: rgba(var(--color-primary-800), 1);
   }
+  .text-secondary-400 {
+    color: rgba(var(--color-secondary-400), 1);
+  }
+  .text-secondary-700 {
+    color: rgba(var(--color-secondary-700), 1);
+  }
   .text-transparent {
     color: transparent;
   }
@@ -2305,6 +2320,11 @@
   .blur\! {
     --tw-blur: blur(8px) !important;
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,) !important;
+  }
+  .drop-shadow {
+    --tw-drop-shadow-size: drop-shadow(0 1px 2px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.1))) drop-shadow(0 1px 1px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.06)));
+    --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow( 0 1px 1px rgb(0 0 0 / 0.06));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .invert {
     --tw-invert: invert(100%);
@@ -3263,6 +3283,16 @@
       border-color: rgba(var(--color-primary-600), 1);
     }
   }
+  .dark\:border-secondary-600 {
+    &:is(.dark *) {
+      border-color: rgba(var(--color-secondary-600), 1);
+    }
+  }
+  .dark\:border-secondary-800 {
+    &:is(.dark *) {
+      border-color: rgba(var(--color-secondary-800), 1);
+    }
+  }
   .dark\:border-white\/10 {
     &:is(.dark *) {
       border-color: color-mix(in oklab, #fff 10%, transparent);
@@ -3490,6 +3520,16 @@
   .dark\:text-primary-400 {
     &:is(.dark *) {
       color: rgba(var(--color-primary-400), 1);
+    }
+  }
+  .dark\:text-secondary-200 {
+    &:is(.dark *) {
+      color: rgba(var(--color-secondary-200), 1);
+    }
+  }
+  .dark\:text-secondary-400 {
+    &:is(.dark *) {
+      color: rgba(var(--color-secondary-400), 1);
     }
   }
   .dark\:text-white {
@@ -4676,10 +4716,12 @@ pre {
 }
 .thumbnail_card {
   min-width: 300px;
-  height: 200px;
+  aspect-ratio: var(--thumbnail-aspect-ratio, 1.5);
+  height: auto;
 }
 .thumbnail_card_related {
-  height: 150px;
+  aspect-ratio: var(--thumbnail-aspect-ratio, 1.5);
+  height: auto;
 }
 .thumbnail {
   width: 300px;
