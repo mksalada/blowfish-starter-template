@@ -37,6 +37,8 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 
 > [!NOTE]
 > The workflow in [`gh-pages.yml`](.github/workflows/gh-pages.yml) will automatically build and deploy your site.
+>
+> Disable/Delete it if you're not deploying with GitHub Pages.
 
 > [!TIP]
 > #### Enable automatic theme updates (Optional)
@@ -45,7 +47,9 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 > - [x] Read and write permissions  
 > - [x] Allow GitHub Actions to create and approve pull requests  
 > 
-> This enables [`update-blowfish.yml`](.github/workflows/update-blowfish.yml) to create PRs when Blowfish updates.
+> This enables [`update-blowfish.yml`](.github/workflows/update-blowfish.yml) to create Pull Requests when Blowfish updates.
+>
+> Disable/delete it if you don't want Blowfish update
 
 ### ☁️ Cloudflare Pages
 [![Cloudflare](https://img.shields.io/badge/Cloudflare%20Pages-Ready-F38020?style=for-the-badge&logo=cloudflare)](https://blowfish-starter-template.pages.dev)
@@ -72,6 +76,8 @@ Your site will be live at: https://`<your-username>`.github.io/`<repo-name>`
 
 > [!NOTE]
 > The included [`netlify.toml`](netlify.toml) handles everything automatically.
+>
+> Delete it if you're not deploying to Netlify.
 
 ### ⚫️ Vercel
 [![Vercel](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)](https://blowfish-starter-template.vercel.app)
@@ -98,6 +104,8 @@ bash render.sh
 
 > [!NOTE]
 > The included [`render.sh`](render.sh) handles the build setup.
+>
+> Delete it if you're not deploying to Render.
 
 ___
 
@@ -142,6 +150,8 @@ ___
 If you found this useful, consider giving [this repo](https://github.com/mksalada/blowfish-starter-template) a ⭐!
 
 > [!NOTE]
-> Curious how this was built (from a phone 😅)?
+> This template is a non-CLI/terminal alternative to install and deploy Blowfish. If you want to install Blowfish via CLI/terminal on your local machine, see [Blowfish Installation](https://blowfish.page/docs/installation).
+> 
+> Curious how this was built from a phone? 😅
 > 
 > 👉 Read the devlog: [Building a Blowfish Starter Template](https://mks.hashnode.dev/building-blowfish-starter-template)
