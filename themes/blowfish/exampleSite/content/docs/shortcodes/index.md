@@ -187,6 +187,39 @@ The alert sign (`+` or `-`) is optional to control whether the admonition is fol
 
 <br/><br/><br/>
 
+## Ansible Galaxy Card
+
+`ansible` renders a card for an [Ansible Galaxy](https://galaxy.ansible.com/) entry, fetched at build time. It accepts either a `role` or a `collection` parameter, both in `namespace.name` form.
+
+<!-- prettier-ignore-start -->
+| Parameter    | Description                                                                          |
+| ------------ | ------------------------------------------------------------------------------------ |
+| `role`       | [String] Galaxy role in the format `namespace.name`, e.g. `geerlingguy.docker`       |
+| `collection` | [String] Galaxy collection in the format `namespace.name`, e.g. `community.general`  |
+<!-- prettier-ignore-end -->
+
+Set exactly one of `role` or `collection` per call.
+
+All card values are fetched at build time via Hugo's `resources.GetRemote`. Galaxy does not allow cross-origin requests, so the card is not refreshed in the browser — rebuild the site to update the values.
+
+**Example 1: Role**
+
+```md
+{{</* ansible role="geerlingguy.docker" */>}}
+```
+
+{{< ansible role="geerlingguy.docker" >}}
+
+**Example 2: Collection**
+
+```md
+{{</* ansible collection="community.general" */>}}
+```
+
+{{< ansible collection="community.general" >}}
+
+<br/><br/><br/>
+
 ## Article
 
 `Article` will embed a single article into a markdown file. The `link` to the file should be the `.RelPermalink` of the file to be embedded. Note that the shortcode will not display anything if it's referencing it's parent. _Note: if you are running your website in a subfolder like Blowfish (i.e. /blowfish/) please include that path in the link._
@@ -229,7 +262,7 @@ New article!
 
 ## Button
 
-`button` outputs a styled button component which can be used to highlight a primary action. It has three optional variables `href`, `target` and `rel` which can be used to specify the URL, target and relation of the link.
+`button` outputs a styled button component which can be used to highlight a primary action. It has four optional variables `pageRef`, `href`, `target` and `rel`. `pageRef` resolves an internal page reference using the current page context, producing a language- and trailing-slash-aware URL that is consistent with the theme's navigation menus. `href` accepts any URL or path. When both are set, `pageRef` takes precedence.
 
 **Example:**
 
@@ -241,6 +274,18 @@ Call to action
 
 {{< button href="#button" target="_self" >}}
 Call to action
+{{< /button >}}
+
+**Example using `pageRef`:**
+
+```md
+{{</* button pageRef="docs/getting-started" */>}}
+Get started
+{{</* /button */>}}
+```
+
+{{< button pageRef="docs/getting-started" >}}
+Get started
 {{< /button >}}
 
 <br/><br/><br/>
@@ -373,6 +418,18 @@ This shortcode is for importing code from external sources easily without copyin
 ```
 
 {{< codeberg repo="forgejo/forgejo" >}}
+
+<br/><br/><br/>
+
+## Email
+
+Creates an obfuscated mailto link:
+
+```md
+{{</* email email="mailto:hello@test.com" text="text" subject="Reply to awesome article" */>}}
+```
+
+{{< email email="mailto:hello@test.com" text="text" subject="Reply to awesome article" >}}
 
 <br/><br/><br/>
 
