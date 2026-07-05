@@ -54,11 +54,32 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const switcher = document.getElementById("appearance-switcher");
   const switcherMobile = document.getElementById("appearance-switcher-mobile");
 
+  // Load the i18n translations for the tooltips
+  const darkLabel = '{{ i18n "footer.dark_appearance" }}';
+  const lightLabel = '{{ i18n "footer.light_appearance" }}';
+
   updateMeta();
   this.updateLogo?.(getTargetAppearance());
 
   // Initialize mermaid theme on page load
   updateMermaidTheme();
+
+  // Helper to update the tooltip depending on the current mode
+  const updateTooltip = (targetAppearance) => {
+    // If target is dark, the next action will be switching to light
+    const label = targetAppearance === "dark" ? lightLabel : darkLabel;
+    if (switcher) {
+      switcher.setAttribute("aria-label", label);
+      switcher.setAttribute("title", label);
+    }
+    if (switcherMobile) {
+      switcherMobile.setAttribute("aria-label", label);
+      switcherMobile.setAttribute("title", label);
+    }
+  };
+
+  // Set initial tooltip on load
+  updateTooltip(getTargetAppearance());
 
   if (switcher) {
     switcher.addEventListener("click", () => {
@@ -70,6 +91,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       );
       updateMeta();
       updateMermaidTheme();
+      updateTooltip(targetAppearance);
       this.updateLogo?.(targetAppearance);
     });
     switcher.addEventListener("contextmenu", (event) => {
@@ -87,6 +109,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       );
       updateMeta();
       updateMermaidTheme();
+      updateTooltip(targetAppearance);
       this.updateLogo?.(targetAppearance);
     });
     switcherMobile.addEventListener("contextmenu", (event) => {

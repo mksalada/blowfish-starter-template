@@ -26,6 +26,7 @@ article:
   this_article: "Dieser Artikel"
   related_articles: "Verwandte Artikel"
   reply_by_email: "Per E-Mail antworten"
+  reply_to: "Antwort auf {{ .Title }}"
   zen_mode_title:
     enable: "Zen-Modus aktivieren"
     disable: "Zen-Modus deaktivieren"
@@ -85,3 +86,10 @@ shortcode:
 
 recent:
   show_more: "Zeige Mehr"
+
+cookie_notice:
+  message_with_link: "Diese Website verwendet Cookies und ähnliche Technologien. Lesen Sie unsere Datenschutzerklärung"
+  message: "Diese Website verwendet Cookies und ähnliche Technologien. Mit der Nutzung dieser Website akzeptierst du das."
+  privacy_policy: "Datenschutzerklärung"
+  button: "Verstanden"
+  image_alt: "Cookie-Symbol"
