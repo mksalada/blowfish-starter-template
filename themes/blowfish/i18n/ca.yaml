@@ -26,6 +26,7 @@ article:
   this_article: "Aquest article"
   related_articles: "Relacionats"
   reply_by_email: "Respon per correu electrònic"
+  reply_to: "Resposta a {{ .Title }}"
   zen_mode_title:
     enable: "Habilita el mode zen"
     disable: "Inhabilita el mode zen"
@@ -85,3 +86,10 @@ shortcode:
 
 recent:
   show_more: "Mostra'n més"
+
+cookie_notice:
+  message_with_link: "Aquest lloc web utilitza galetes i tecnologies similars. Llegeix la nostra política de privacitat"
+  message: "Aquest lloc web utilitza galetes i tecnologies similars. En utilitzar aquest lloc web, ho acceptes."
+  privacy_policy: "política de privacitat"
+  button: "Entès"
+  image_alt: "Icona de galeta"

@@ -151,6 +151,12 @@ function buildIndex() {
 }
 
 function executeQuery(term) {
+  if (!indexed) {
+    buildIndex();
+  }
+  if (!fuse) {
+    return;
+  }
   let results = fuse.search(term);
   let resultsHTML = "";
 
@@ -193,7 +199,7 @@ function executeQuery(term) {
   }
 
   output.innerHTML = resultsHTML;
-  if (results.length > 0) {
+  if (results.length > 0 && output.firstChild) {
     first = output.firstChild.firstElementChild;
     last = output.lastChild.firstElementChild;
   }

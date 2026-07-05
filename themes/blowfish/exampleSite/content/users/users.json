@@ -510,15 +510,6 @@
     ]
   },
   {
-    "title": "Middle of Nowhere",
-    "url": "https://blog.wtcx.dev/",
-    "source": "n/a",
-    "tags": [
-      "Personal Site",
-      "Blog"
-    ]
-  },
-  {
     "title": "UmmIt - Blog",
     "url": "https://blog.ummit.dev/",
     "source": "n/a",
@@ -1031,6 +1022,118 @@
     "title": "luizcarloscf.github.io",
     "url": "https://luizcarloscf.github.io/",
     "source": "https://github.com/luizcarloscf/luizcarloscf.github.io",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "Robin Fairchild",
+    "url": "https://fairchild26.github.io/",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "Paraguay4Life",
+    "url": "https://paraguay4life.com/",
+    "source": "n/a",
+    "tags": [
+      "Blog",
+      "Travel",
+      "Paraguay"
+    ]
+  },
+  {
+    "title": "www.gsking.co.uk",
+    "url": "https://www.gsking.co.uk",
+    "source": "n/a",
+    "tags": [
+      "Personal site"
+    ]
+  },
+  {
+    "title": "Story Seed Library",
+    "url": "https://storySeedLibrary.org/",
+    "source": "https://codeberg.org/alxd/storyseedlibrary",
+    "tags": [
+      "Gallery",
+      "Solarpunk",
+      "Community Project"
+    ]
+  },
+  {
+    "title": "www.azriel.id",
+    "url": "https://www.azriel.id/",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "learning",
+      "Portfolio"
+    ]
+  },
+  {
+    "title": "Douwe Zumker",
+    "url": "https://douwez.dev",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "Photography"
+    ]
+  },
+  {
+    "title": "fionnlinux.com",
+    "url": "https://fionnlinux.com",
+    "source": "https://github.com/fionnlinux/fionnlinux.com",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "Linux",
+      "Open Source"
+    ]
+  },
+  {
+    "title": "techtrailpulse.com",
+    "url": "https://techtrailpulse.com",
+    "source": "https://github.com/gregpuzzles1/blog",
+    "tags": [
+      "Personal site"
+    ]
+  },
+  {
+    "title": "blog.nordbye.it",
+    "url": "https://blog.nordbye.it/",
+    "source": "https://github.com/mortennordbye/homelab",
+    "tags": [
+      "Technology Blog"
+    ]
+  },
+  {
+    "title": "Sebastian Zehner",
+    "url": "https://sebastianzehner.com",
+    "source": "https://github.com/sebastianzehner/blog",
+    "tags": [
+      "Personal Site",
+      "Blog",
+      "Techlab"
+    ]
+  },
+  {
+    "title": "tobydevlin.com",
+    "url": "https://tobydevlin.com",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "chandlerthompson.dev",
+    "url": "https://chandlerthompson.dev",
+    "source": "n/a",
     "tags": [
       "Personal site",
       "Blog"
