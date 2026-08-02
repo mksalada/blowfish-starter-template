@@ -30,6 +30,7 @@ article:
   this_article: "This Article"
   related_articles: "Related"
   reply_by_email: "Відповісти електронною поштою"
+  reply_to: "Відповідь на {{ .Title }}"
   zen_mode_title:
     enable: "Enable zen mode"
     disable: "Disable zen mode"
@@ -85,3 +86,10 @@ shortcode:
 
 recent:
   show_more: "Show More"
+
+cookie_notice:
+  message_with_link: "Цей вебсайт використовує файли cookie та подібні технології. Прочитайте нашу політику конфіденційності"
+  message: "Цей вебсайт використовує файли cookie та подібні технології. Користуючись цим вебсайтом, ви погоджуєтеся з цим."
+  privacy_policy: "політикою конфіденційності"
+  button: "Зрозуміло"
+  image_alt: "Значок cookie"

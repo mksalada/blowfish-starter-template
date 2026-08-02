@@ -32,7 +32,7 @@ Prima di creare qualsiasi contenuto, è necessario impostare alcune cose per una
 # config/_default/hugo.toml
 
 baseURL = "https://your_domain.com/"
-languageCode = "en"
+locale = "en"
 ```
 
 Il passo successivo è configurare le impostazioni della lingua. Sebbene Blowfish supporti le configurazioni multilingue, per ora basta configurare la lingua principale.
@@ -41,7 +41,7 @@ Individua il file "languages.en.toml" nella cartella di configurazione. Se la tu
 
 {{< alert >}}
 
-Tieni presente che il codice della lingua nel nome del file di configurazione della lingua deve corrispondere all'impostazione "languageCode" in "hugo.toml".
+Tieni presente che il codice della lingua nel nome del file di configurazione della lingua deve corrispondere all'impostazione "locale" in "hugo.toml".
 
 {{< /alert >}}
 

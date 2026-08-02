@@ -113,8 +113,8 @@ Blowfish 主题目前默认支持了以下语言：
 <!-- prettier-ignore-start -->
 | 名称 | 默认值 | 描述 |
 | --- | --- | --- |
-| `languageCode` | `"en"` | Hugo 中的默认语言代码。他可以是一个高层级语言（例如 `en`），也可以是一个变体子语言（例如 `en-au`），但一定需要和语言配置文件中的语言代码相匹配。为了符合 HTML 的规范并设置设置大小写敏感的 `isoCode`，Hugo希望这个值最好是小写。 |
-| `languageName` | `"English"` | 语言名称。 |
+| `locale` | `"en"` | Hugo 中的默认语言代码。他可以是一个高层级语言（例如 `en`），也可以是一个变体子语言（例如 `en-au`），但一定需要和语言配置文件中的语言代码相匹配。为了符合 HTML 的规范并设置设置大小写敏感的 `isoCode`，Hugo希望这个值最好是小写。 |
+| `label` | `"English"` | 语言名称。 |
 | `weight` | `1` | 权重决定了在构建多语言时的语言顺序。 |
 | `title` | `"Blowfish"` | 网站的标题。它将在网站头部和底部进行展示。 |
 <!-- prettier-ignore-end -->

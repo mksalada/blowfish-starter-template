@@ -67,6 +67,7 @@ The theme currently supports the following languages by default:
 | Language                     | Code    |
 | ---------------------------- | ------- |
 | Arabic                       | `ar`    |
+| Basque                       | `eu`    |
 | Bulgarian                    | `bg`    |
 | Bengali                      | `bn`    |
 | Catalan                      | `ca`    |
@@ -115,8 +116,8 @@ The default file can be used as a template to create additional languages, or re
 <!-- prettier-ignore-start -->
 | Name | Default | Description |
 | --- | --- | --- |
-| `languageCode` | `"en"` | The Hugo language code for this file. It can be a top-level language (ie. `en`) or a sub-variant (ie. `en-au`) and should match the language code in the filename. Hugo expects this value to always be in lowercase. For proper HTML compliance, set the `isoCode` parameter which is case-sensitive. |
-| `languageName` | `"English"` | The name of the language. |
+| `locale` | `"en"` | The Hugo language code for this file. It can be a top-level language (ie. `en`) or a sub-variant (ie. `en-au`) and should match the language code in the filename. Hugo expects this value to always be in lowercase. For proper HTML compliance, set the `isoCode` parameter which is case-sensitive. |
+| `label` | `"English"` | The name of the language. |
 | `weight` | `1` | The weight determines the order of languages when building multilingual sites. |
 | `title` | `"Blowfish"` | The title of the website. This will be displayed in the site header and footer. |
 <!-- prettier-ignore-end -->
@@ -149,6 +150,21 @@ The default file can be used as a template to create additional languages, or re
 | `params.author.bio` | _Not set_ | A Markdown string containing the author's bio. It will be displayed in article footers. |
 | `params.author.links` | _Not set_ | The links to display alongside the author's details. The config file contains example links which can simply be uncommented to enable. The order that the links are displayed is determined by the order they appear in the array. Custom links can be added by providing corresponding SVG icon assets in `assets/icons/`. |
 <!-- prettier-ignore-end -->
+
+### Client-side language redirect
+
+Blowfish can optionally redirect visitors to a matching translated page entirely in the browser. The feature is disabled by default, requires no server-side component, and uses `localStorage` instead of cookies to remember language choices made through the existing language dropdown.
+
+When enabled, the browser-language redirect runs only on home pages by default. If none of the visitor's browser languages match an available translation, Blowfish can redirect to `fallbackLanguage` when that translation exists. If `fallbackLanguage` is not set, Blowfish uses Hugo's default content language. A language chosen manually from the dropdown is stored and preferred on later visits when the current page has a matching translated URL.
+
+```toml
+[languageRedirect]
+  enabled = false
+  storageKey = "blowfish_preferred_language"
+  # fallbackLanguage = "en"
+  browserRedirectHomeOnly = true
+  storedLanguageRedirect = true
+```
 
 ### Menus
 
@@ -185,6 +201,7 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `showViews` | _Not set_ | Whether or not articles and list views are displayed. This requires firebase integrations to be enabled, look below. |
 | `showLikes` | _Not set_ | Whether or not articles and list likes are displayed. This requires firebase integrations to be enabled, look below. |
 | `robots` | _Not set_ | String that indicates how robots should handle your site. If set, it will be output in the page head. Refer to [Google's docs](https://developers.google.com/search/docs/advanced/robots/robots_meta_tag#directives) for valid values. |
+| `seo.metaDescriptionOrder` | `["summary", "description", "site"]` | Controls the fallback order for the HTML meta description. Valid values are `summary`, `description`, and `site`. Use `["description", "summary", "site"]` if you want front matter `description` to take precedence over `summary`. |
 | `disableImageZoom` | `false` | Disables image zoom feature across all the images in the site. |
 | `disableImageOptimization` | `false` | Disables image resize and optimization features across all the images in the site, except images using markdown syntax (`![](image.jpg)`) |
 | `disableImageOptimizationMD` | `false` | Disables image resize and optimization features only for images using markdown syntax (`![](image.jpg)`). |
@@ -199,6 +216,11 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `smartTOC` | _Not set_ | Activate smart Table of Contents, items in view will be highlighted. |
 | `smartTOCHideUnfocusedChildren` | _Not set_ | When smart Table of Contents is turned on, this will hide deeper levels of the table when they are not in focus. |
 | `fingerprintAlgorithm` | `"sha512"` | Hash algorithm for CSS/JS file fingerprinting to prevent browser caching issues. Valid values are `sha512` (default), `sha384`, `sha256`. |
+| `languageRedirect.enabled` | `false` | Enables client-side language redirects for multilingual sites. Disabled by default for backwards compatibility. |
+| `languageRedirect.storageKey` | `"blowfish_preferred_language"` | The `localStorage` key used to persist manual language dropdown selections. |
+| `languageRedirect.fallbackLanguage` | Hugo's default content language | Language to redirect to when no browser language matches and that language has a translation for the current page. |
+| `languageRedirect.browserRedirectHomeOnly` | `true` | Restricts browser-language redirects to home pages to avoid surprising visitors who open deep links. |
+| `languageRedirect.storedLanguageRedirect` | `true` | Allows a stored manual language selection to redirect translated pages when a matching translation exists. |
 
 ### Header
 
@@ -244,8 +266,8 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `article.showAuthorBottom` | `false` | Author boxes are displayed at the bottom of each page instead of the top. |
 | `article.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each article page. |
 | `article.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `article.showHero = true`. |
-| `article.layoutBackgroundBlur` | `true` | Makes the background image in the background article heroStyle blur with the scroll |
-| `article.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. |
+| `article.layoutBackgroundBlur` | `true` | Makes the background image in the background article heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `article.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `article.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the article header. |
 | `article.showDraftLabel` | `true` | Whether or not the draft indicator is shown next to articles when site is built with `--buildDrafts`. |
 | `article.showEdit` | `false` | Whether or not the link to edit the article content should be displayed. |
@@ -260,7 +282,9 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `article.showRelatedContent` | `false` | Display related content for each post. Might required additional configuration to your `hugo.toml`. Please check the theme `hugo.toml` if you want to enable this feature and copy all the relevant _related_ entries. Also check [Hugo's docs](https://gohugo.io/content-management/related/) on related content. |
 | `article.relatedContentLimit` | `3` | Limit of related articles to display if `showRelatedContent` is turned on. |
 | `article.showTaxonomies` | `false` | Whether or not all the taxonomies related to this article are displayed. |
-| `article.showCategoryOnly` | `false` | Whether or not the "category" taxonomy is displayed. `showTaxonomies` should be `false` when this param is used, otherwise duplicates will appear. |
+| `article.showCategories` | `true` | Whether or not the `category` taxonomies are displayed. Requires `showTaxonomies` to be `true`. |
+| `article.showTags` | `true` | Whether or not the `tag` taxonomies are displayed. Requires `showTaxonomies` to be `true`. |
+| `article.showCategoriesInSecondaryColor` | `false` | This will make the `category` taxonomy badges to show in a secondary color, so the user can better distinguish between categories and tags. Requires `showTaxonomies` to be `true`. |
 | `article.showAuthorsBadges` | `false` | Whether the `authors` taxonomies are are displayed in the article or list header. This requires the setup of `multiple authors` and the `authors` taxonomy. Check [this page]({{< ref "multi-author" >}}) for more details on how to configure that feature. |
 | `article.showWordCount` | `false` | Whether or not article word counts are displayed. |
 | `article.showComments` | `false` | Whether or not the [comments partial]({{< ref "partials#comments" >}}) is included after the article footer. |
@@ -274,9 +298,9 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | --- | --- | --- |
 | `list.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each list page. |
 | `list.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `list.showHero = true`. |
+| `list.layoutBackgroundBlur` | `true` | Makes the background image in the background list heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `list.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `list.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the header on list pages. |
-| `list.layoutBackgroundBlur` | `true` | Makes the background image in the background list heroStyle blur with the scroll |
-| `list.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. |
 | `list.showTableOfContents` | `false` | Whether or not the table of contents is displayed on list pages. |
 | `list.showSummary` | `false` | Whether or not article summaries are displayed on list pages. If a summary is not provided in the [front matter]({{< ref "front-matter" >}}), one will be auto generated using the `summaryLength` parameter in the [site configuration](#site-configuration). |
 | `list.showViews` | `false` | Whether or not list views are displayed. This requires firebase integrations to be enabled, look below. |
@@ -302,6 +326,8 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `taxonomy.showTermCount` | `true` | Whether or not the number of articles within a taxonomy term is displayed on the taxonomy listing. |
 | `taxonomy.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each taxonomy page. |
 | `taxonomy.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `taxonomy.showHero = true`. |
+| `taxonomy.layoutBackgroundBlur` | `true` | Makes the background image in the background taxonomy heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `taxonomy.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `taxonomy.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the taxonomy header. |
 | `taxonomy.showViews` | `false` | Whether or not article views are displayed. This requires firebase integrations to be enabled, look below. |
 | `taxonomy.showLikes` | `false` | Whether or not article likes are displayed. This requires firebase integrations to be enabled, look below. |
@@ -314,6 +340,8 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | --- | --- | --- |
 | `term.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each term page. |
 | `term.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `term.showHero = true`. |
+| `term.layoutBackgroundBlur` | `true` | Makes the background image in the background term heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `term.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `term.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the term header. |
 | `term.showViews` | `false` | Whether or not article views are displayed. This requires firebase integrations to be enabled, look below. |
 | `term.showLikes` | `false` | Whether or not article likes are displayed. This requires firebase integrations to be enabled, look below. |

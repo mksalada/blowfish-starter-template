@@ -24,9 +24,10 @@
     <div class="flex items-center">
       <button
         id="appearance-switcher"
-        aria-label="Dark mode switcher"
+        aria-label="{{ i18n "footer.dark_appearance" }}"
         type="button"
-        class="text-base bf-icon-color-hover">
+        class="text-base bf-icon-color-hover"
+        title="{{ i18n "footer.dark_appearance" }}">
         <div class="flex items-center justify-center dark:hidden">
           {{ partial "icon.html" "moon" }}
         </div>

@@ -23,6 +23,7 @@ article:
   this_article: "Esse Artigo"
   related_articles: "Relacionados"
   reply_by_email: "Responder por email"
+  reply_to: "Resposta a {{ .Title }}"
 
 a11y:
   title: "Configurações de acessibilidade"
@@ -75,3 +76,10 @@ shortcode:
 
 recent:
   show_more: "Mostrar Mais"
+
+cookie_notice:
+  message_with_link: "Este site usa cookies e tecnologias semelhantes. Leia nossa política de privacidade"
+  message: "Este site usa cookies e tecnologias semelhantes. Ao usar este site, você aceita isso."
+  privacy_policy: "política de privacidade"
+  button: "Entendi"
+  image_alt: "Ícone de cookie"

@@ -25,13 +25,13 @@ Os ficheiros de configuração que acompanham o Blowfish contêm todas as defini
 
 ## Configuração básica
 
-Antes de criar qualquer conteúdo, há algumas coisas que deve configurar para uma nova instalação. Começando no ficheiro `hugo.toml`, defina os parâmetros `baseURL` e `languageCode`. O `languageCode` deve ser definido para o idioma principal que utilizará para escrever o seu conteúdo.
+Antes de criar qualquer conteúdo, há algumas coisas que deve configurar para uma nova instalação. Começando no ficheiro `hugo.toml`, defina os parâmetros `baseURL` e `locale`. O `locale` deve ser definido para o idioma principal que utilizará para escrever o seu conteúdo.
 
 ```toml
 # config/_default/hugo.toml
 
 baseURL = "https://your_domain.com/"
-languageCode = "pt-pt"
+locale = "pt-pt"
 ```
 
 O próximo passo é configurar as definições de idioma. Embora o Blowfish suporte configurações multilingues, por agora, apenas configure o idioma principal.
@@ -39,7 +39,7 @@ O próximo passo é configurar as definições de idioma. Embora o Blowfish supo
 Localize o ficheiro `languages.en.toml` na pasta de configuração. Se o seu idioma principal for inglês, pode utilizar este ficheiro tal como está. Caso contrário, renomeie-o para incluir o código de idioma correto no nome do ficheiro. Por exemplo, para português europeu, renomeie o ficheiro para `languages.pt-pt.toml`.
 
 {{< alert >}}
-Note que o código de idioma no nome do ficheiro de configuração de idioma deve corresponder à definição `languageCode` em `hugo.toml`.
+Note que o código de idioma no nome do ficheiro de configuração de idioma deve corresponder à definição `locale` em `hugo.toml`.
 {{< /alert >}}
 
 ```toml

@@ -25,13 +25,13 @@ The config files that ship with Blowfish contain all of the possible settings th
 
 ## Basic configuration
 
-Before creating any content, there are a few things you should set for a new installation. Starting in the `hugo.toml` file, set the `baseURL` and `languageCode` parameters. The `languageCode` should be set to the main language that you will be using to author your content.
+Before creating any content, there are a few things you should set for a new installation. Starting in the `hugo.toml` file, set the `baseURL` and `locale` parameters. The `locale` should be set to the main language that you will be using to author your content.
 
 ```toml
 # config/_default/hugo.toml
 
 baseURL = "https://your_domain.com/"
-languageCode = "en"
+locale = "en"
 ```
 
 The next step is to configure the language settings. Although Blowfish supports multilingual setups, for now, just configure the main language.
@@ -39,7 +39,7 @@ The next step is to configure the language settings. Although Blowfish supports 
 Locate the `languages.en.toml` file in the config folder. If your main language is English you can use this file as is. Otherwise, rename it so that it includes the correct language code in the filename. For example, for French, rename the file to `languages.fr.toml`.
 
 {{< alert >}}
-Note that the language code in the language config filename should match the `languageCode` setting in `hugo.toml`.
+Note that the language code in the language config filename should match the `locale` setting in `hugo.toml`.
 {{< /alert >}}
 
 ```toml
