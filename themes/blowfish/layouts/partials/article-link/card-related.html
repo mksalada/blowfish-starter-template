@@ -6,8 +6,12 @@
 {{ $page := .Page }}
 {{ $featured := "" }}
 {{ $featuredURL := "" }}
+{{ $thumbnailAspectRatio := site.Params.thumbnailAspectRatio | default "1.5" }}
+{{ $thumbnailAspectRatio = replaceRE "[^0-9.]" "" $thumbnailAspectRatio }}
+{{ if eq $thumbnailAspectRatio "" }}{{ $thumbnailAspectRatio = "1.5" }}{{ end }}
 {{/* frontmatter */}}
 {{ with $page }}
+  {{ $p := . }}
   {{ with .Params.featureimage }}
     {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
       {{ if site.Params.hotlinkFeatureImage }}
@@ -16,7 +20,10 @@
         {{ $featured = resources.GetRemote . }}
       {{ end }}
     {{ else }}
-      {{ $featured = resources.Get . }}
+      {{ $featured = $p.Resources.Get . }}
+      {{ if not $featured }}
+        {{ $featured = resources.Get . }}
+      {{ end }}
     {{ end }}
   {{ end }}
 
@@ -53,14 +60,16 @@
 <article
   class="article-link--related relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600">
   {{ with $featuredURL }}
-    <div class="flex-none relative overflow-hidden thumbnail_card_related">
+    <div
+      class="flex-none relative overflow-hidden thumbnail_card_related"
+      style="--thumbnail-aspect-ratio: {{ $thumbnailAspectRatio }}">
       <img
         src="{{ . }}"
         role="presentation"
         loading="lazy"
         decoding="async"
         fetchpriority="low"
-        class="not-prose absolute inset-0 w-full h-full object-cover">
+        class="not-prose absolute inset-0 w-full h-full object-cover" />
     </div>
   {{ end }}
   {{ if and .Draft .Site.Params.article.showDraftLabel }}

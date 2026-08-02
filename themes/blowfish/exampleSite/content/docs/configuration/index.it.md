@@ -115,8 +115,8 @@ Il file predefinito può essere utilizzato come modello per creare lingue aggiun
 <!-- prettier-ignore-start -->
 | Name | Default | Description |
 | --- | --- | --- |
-| `languageCode` | `"en"` | Il codice della lingua Hugo per questo file. Può essere una lingua di livello superiore (ad esempio "en") o una variante secondaria (ad esempio "en-au") e deve corrispondere al codice della lingua nel nome del file. Hugo si aspetta che questo valore sia sempre in minuscolo. Per una corretta conformità HTML, imposta il parametro "isoCode" che fa distinzione tra maiuscole e minuscole. |
-| `languageName` | `"English"` | Il nome della lingua. |
+| `locale` | `"en"` | Il codice della lingua Hugo per questo file. Può essere una lingua di livello superiore (ad esempio "en") o una variante secondaria (ad esempio "en-au") e deve corrispondere al codice della lingua nel nome del file. Hugo si aspetta che questo valore sia sempre in minuscolo. Per una corretta conformità HTML, imposta il parametro "isoCode" che fa distinzione tra maiuscole e minuscole. |
+| `label` | `"English"` | Il nome della lingua. |
 | `weight` | `1` | Il peso determina l'ordine delle lingue durante la creazione di siti multilingue. |
 | `title` | `"Blowfish"` | Il titolo del sito web. Questo verrà visualizzato nell'intestazione e nel piè di pagina del sito. |
 <!-- prettier-ignore-end -->

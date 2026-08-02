@@ -26,6 +26,7 @@ article:
   this_article: "本文"
   related_articles: "相关文章"
   reply_by_email: "通过邮件回复"
+  reply_to: "回复 {{ .Title }}"
   zen_mode_title:
     enable: "啟用阅读模式"
     disable: "停用阅读模式"
@@ -101,3 +102,10 @@ admonition:
   tip: 提示
   todo: 待办
   warning: 警告
+
+cookie_notice:
+  message_with_link: "本网站使用 Cookie 和类似技术。请阅读我们的隐私政策"
+  message: "本网站使用 Cookie 和类似技术。使用本网站即表示您接受这一点。"
+  privacy_policy: "隐私政策"
+  button: "明白了"
+  image_alt: "Cookie 图标"
