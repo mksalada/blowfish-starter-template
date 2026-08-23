@@ -1,7 +1,7 @@
 [English](https://github.com/nunocoracao/blowfish/blob/main/README.md) | Français | [Deutsch](https://github.com/nunocoracao/blowfish/blob/main/README.de.md) | [Português (PT)](https://github.com/nunocoracao/blowfish/blob/main/README.pt-pt.md) | [Português (BR)](https://github.com/nunocoracao/blowfish/blob/main/README.pt-br.md) | [Español](https://github.com/nunocoracao/blowfish/blob/main/README.es.md) | [日本語](https://github.com/nunocoracao/blowfish/blob/main/README.ja.md) | [简体中文](https://github.com/nunocoracao/blowfish/blob/main/README.zh-cn.md) | [Indonesian](https://github.com/nunocoracao/blowfish/blob/main/README.id.md)
 # Blowfish
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6e5256d4-3148-4d69-879c-310341020fe9/deploy-status)](https://app.netlify.com/sites/snazzy-dango-efb2ec/deploys)
-[![Minimum Hugo Version](https://img.shields.io/static/v1?label=min-HUGO-version&message=0.141.0&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.141.0)
+[![Minimum Hugo Version](https://img.shields.io/static/v1?label=min-HUGO-version&message=0.162.0&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.162.0)
 [![GitHub](https://img.shields.io/github/license/nunocoracao/blowfish)](https://github.com/nunocoracao/blowfish/blob/main/LICENSE)
 [![Blowfish](https://img.shields.io/badge/Hugo--Themes-@Blowfish-blue)](https://themes.gohugo.io/themes/blowfish/)
 ![code-size](https://img.shields.io/github/languages/code-size/nunocoracao/blowfish)
@@ -13,27 +13,29 @@ Blowfish est conçu pour être un thème puissant et léger pour [Hugo](https://
 
 🌏 [Site de démonstration](https://blowfish.page/)
 📑 [Documentation du thème](https://blowfish.page/docs/)
-💎 [Boutique de produits dérivés](http://tee.pub/lic/qwSlWVBL5zc)
 🐛 [Rapports de bugs et problèmes](https://github.com/nunocoracao/blowfish/issues)
 💡 [Questions et demandes de fonctionnalités](https://github.com/nunocoracao/blowfish/discussions)
 
 
-
 <a href="https://www.buymeacoffee.com/nunocoracao" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-<a target="_blank" href="http://tee.pub/lic/qwSlWVBL5zc"><img class="nozoom" src="https://img.buymeacoffee.com/button-api/?text=Merch Store &emoji=💎&slug=nunocoracao&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>
-
 
 
 ## Fonctionnalités
 
-- Disposition entièrement responsive construite avec Tailwind CSS 3.0
+- Disposition entièrement responsive construite avec Tailwind CSS 4
 - Plusieurs palettes de couleurs (ou personnalisez entièrement la vôtre)
 - Mode sombre (forcé activé/désactivé ou basculement automatique avec commutateur utilisateur)
+- Plusieurs mises en page pour la page d'accueil, y compris une page d'atterrissage de style produit avec image hero, statistiques et grilles de fonctionnalités
+- En-tête flottant effet verre avec raccourci de recherche ⌘K / Ctrl+K
+- Canevas d'arrière-plan global avec des sections hero qui s'y dissolvent au défilement
+- Barre de progression de lecture pour les articles
+- Sélecteur interactif de mise en page de la page d'accueil pour des aperçus en direct
+- Skill d'agent permettant aux agents de codage IA (comme Claude Code) d'installer et de configurer le thème pour vous
+- Pages adaptées à l'impression avec des styles d'impression dédiés
 - Configuration hautement personnalisable
 - Intégration Firebase pour prendre en charge les données dynamiques
 - Compteur de vues et mécanisme de likes
 - Articles connexes
-- Plusieurs mises en page pour la page d'accueil
 - Plusieurs auteurs
 - Séries d'articles
 - Tri des articles basé sur la date et le poids
@@ -44,7 +46,7 @@ Blowfish est conçu pour être un thème puissant et léger pour [Hugo](https://
 - Table des matières défilable
 - Support du contenu multilingue incluant la prise en charge des langues RTL
 - Possibilité de lier des articles sur des sites web tiers
-- Prise en charge de plusieurs shortcodes comme Gallery, Timeline, GitHub cards et Carousels
+- Plus de 40 shortcodes incluant Gallery, Timeline, GitHub cards, Carousels, Stats, grilles de fonctionnalités, Steps et boutons CTA
 - Syntaxe GitHub Alerts, 15 types, support pliable
 - Intégration Buymeacoffee
 - Recherche côté client alimentée par Fuse.js
@@ -80,11 +82,22 @@ Blowfish prend en charge plusieurs méthodes d'installation - en tant que sous-m
 
 Des instructions détaillées pour chaque méthode se trouvent dans la documentation [Installation](https://blowfish.page/docs/installation). Vous devriez consulter la documentation pour l'expérience de configuration la plus simple. Ci-dessous se trouve un guide de démarrage rapide utilisant les sous-modules si vous utilisez git, ou les modules Hugo si vous êtes déjà à l'aise avec l'installation de thèmes Hugo.
 
+### Démarrage rapide avec un agent IA
+
+Blowfish inclut un [agent skill](https://github.com/nunocoracao/blowfish/tree/main/.claude/skills/blowfish) qui apprend aux agents de codage IA — comme Claude Code — à installer, configurer et construire des sites avec le thème. Installez-le depuis la marketplace de plugins Blowfish dans Claude Code :
+
+```shell
+/plugin marketplace add nunocoracao/blowfish
+/plugin install blowfish@blowfish
+```
+
+Ou copiez simplement le dossier du skill dans le dépôt de votre site à l'emplacement `.claude/skills/blowfish/` — les agents détectent automatiquement les skills de projet. Demandez ensuite à votre agent de configurer Blowfish pour vous.
+
 ### Démarrage rapide avec Blowfish Tools
 
 > **Note :** Assurez-vous d'avoir **Node.js**, **Git** et **Hugo** installés, et d'avoir créé un nouveau projet Hugo avant de continuer.
 
-Nous venons de lancer un nouvel outil CLI pour vous aider à démarrer avec Blowfish. Il créera un nouveau projet Hugo, installera le thème et configurera les fichiers de configuration du thème pour vous. Il est encore en version bêta, veuillez donc [signaler tout problème que vous rencontrez](https://github.com/nunocoracao/blowfish-tools).
+Blowfish Tools est un outil CLI qui vous aide à démarrer avec Blowfish. Il créera un nouveau projet Hugo, installera le thème et configurera les fichiers de configuration du thème pour vous. Veuillez [signaler tout problème que vous rencontrez](https://github.com/nunocoracao/blowfish-tools).
 
 Installez l'outil CLI globalement en utilisant npm (ou un autre gestionnaire de paquets) :
 ```shell
@@ -137,7 +150,7 @@ blowfish-tools new mynewsite
 
    ```toml
    [[imports]]
-   path = "github.com/nunocoracao/blowfish/v2"
+   path = "github.com/nunocoracao/blowfish/v3"
    ```
 
 3. Démarrez votre serveur en utilisant `hugo server` et le thème sera téléchargé automatiquement.
@@ -156,6 +169,10 @@ Au fur et à mesure que de nouvelles versions sont publiées, vous pouvez mettre
 
 Des [instructions de mise à jour](https://blowfish.page/docs/installation/#installing-updates) détaillées sont disponibles dans la documentation.
 
+### Mise à niveau de v2 vers v3
+
+Blowfish v3 est entièrement rétrocompatible : chaque nouvelle fonctionnalité est optionnelle et aucune option de configuration ni aucun template n'a été supprimé. Les installations par sous-module git et manuelles se mettent à niveau comme d'habitude, sans aucun changement ; les utilisateurs de modules Hugo doivent simplement changer le chemin d'import dans `config/_default/module.toml` de `github.com/nunocoracao/blowfish/v2` à `github.com/nunocoracao/blowfish/v3` puis exécuter `hugo mod get -u`. Consultez les [instructions de mise à niveau](https://blowfish.page/docs/installation/#upgrading-from-v2-to-v3) pour plus de détails.
+
 ---
 
 ## Contribuer
@@ -171,9 +188,5 @@ N'hésitez pas à me contacter pour tout problème ou suggestion de nouvelles fo
 Si vous êtes en mesure de corriger un bug ou de mettre en œuvre une nouvelle fonctionnalité, j'accueille les PR à cette fin. Apprenez-en plus dans les [directives de contribution](https://github.com/nunocoracao/blowfish/blob/main/CONTRIBUTING.md).
 
 ---
-
-## Évolution des stargazers
-
-[![Stargazers over time](https://starchart.cc/nunocoracao/blowfish.svg)](https://starchart.cc/nunocoracao/blowfish)
 
 <a rel="me" href="https://masto.ai/@blowfish">Mastodon</a>

@@ -26,6 +26,7 @@ article:
   this_article: "Denne artikel"
   related_articles: "Relateret"
   reply_by_email: "Svar via email"
+  reply_to: "Svar på {{ .Title }}"
   zen_mode_title:
     enable: "Aktiver zen mode"
     disable: "Deaktiver zen mode"
@@ -85,3 +86,10 @@ shortcode:
 
 recent:
   show_more: "Vis mere"
+
+cookie_notice:
+  message_with_link: "Denne hjemmeside bruger cookies og lignende teknologier. Læs vores privatlivspolitik"
+  message: "Denne hjemmeside bruger cookies og lignende teknologier. Ved at bruge denne hjemmeside accepterer du dette."
+  privacy_policy: "privatlivspolitik"
+  button: "Forstået"
+  image_alt: "Cookie-ikon"
