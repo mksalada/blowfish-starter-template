@@ -20,6 +20,7 @@ article:
   this_article: "This Article"
   related_articles: "Related"
   reply_by_email: "Vastaa sähköpostitse"
+  reply_to: "Vastaus: {{ .Title }}"
 
 a11y:
   title: "Esteettömyysasetukset"
@@ -72,3 +73,10 @@ shortcode:
 
 recent:
   show_more: "Näytä Lisää"
+
+cookie_notice:
+  message_with_link: "Tämä verkkosivusto käyttää evästeitä ja vastaavia tekniikoita. Lue tietosuojakäytäntömme"
+  message: "Tämä verkkosivusto käyttää evästeitä ja vastaavia tekniikoita. Käyttämällä tätä verkkosivustoa hyväksyt tämän."
+  privacy_policy: "tietosuojaselosteemme"
+  button: "Ymmärretty"
+  image_alt: "Evästeen kuvake"

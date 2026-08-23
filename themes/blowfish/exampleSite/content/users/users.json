@@ -65,14 +65,6 @@
     ]
   },
   {
-    "title": "fahru.my.id",
-    "url": "https://www.fahru.my.id",
-    "source": "n/a",
-    "tags": [
-      "Personal site"
-    ]
-  },
-  {
     "title": "loisvelasco.is-a.dev",
     "url": "https://loisvelasco.is-a.dev",
     "source": "n/a",
@@ -147,14 +139,6 @@
   {
     "title": "blog.muffn.io",
     "url": "https://blog.muffn.io/",
-    "source": "n/a",
-    "tags": [
-      "Personal site"
-    ]
-  },
-  {
-    "title": "nick.bouwhuis.net",
-    "url": "https://nick.bouwhuis.net",
     "source": "n/a",
     "tags": [
       "Personal site"
@@ -329,14 +313,6 @@
     ]
   },
   {
-    "title": "scottmckendry.tech",
-    "url": "https://scottmckendry.tech",
-    "source": "n/a",
-    "tags": [
-      "Personal site"
-    ]
-  },
-  {
     "title": "ohdmire.github.io",
     "url": "https://ohdmire.github.io",
     "source": "n/a",
@@ -387,15 +363,6 @@
   {
     "title": "BoringTech.net",
     "url": "https://boringtech.net/",
-    "source": "n/a",
-    "tags": [
-      "Personal Site",
-      "Blog"
-    ]
-  },
-  {
-    "title": "technicaldc.github.io",
-    "url": "https://technicaldc.github.io/",
     "source": "n/a",
     "tags": [
       "Personal Site",
@@ -510,15 +477,6 @@
     ]
   },
   {
-    "title": "Middle of Nowhere",
-    "url": "https://blog.wtcx.dev/",
-    "source": "n/a",
-    "tags": [
-      "Personal Site",
-      "Blog"
-    ]
-  },
-  {
     "title": "UmmIt - Blog",
     "url": "https://blog.ummit.dev/",
     "source": "n/a",
@@ -560,15 +518,6 @@
     "source": "https://github.com/LuizGlomyer/luizglomyer.github.io",
     "tags": [
       "Personal site"
-    ]
-  },
-  {
-    "title": "utrodus.com",
-    "url": "https://utrodus.com",
-    "source": "https://github.com/utrodus/utrodus.com",
-    "tags": [
-      "Portfolio Site",
-      "Blog"
     ]
   },
   {
@@ -784,19 +733,6 @@
     ]
   },
   {
-    "title": "Learn-Software.com",
-    "url": "https://learn-software.com",
-    "source": "https://github.com/learn-software-engineering/website",
-    "tags": [
-      "Personal Website",
-      "Tech Blog",
-      "Learning",
-      "Software Engineering",
-      "Programming",
-      "Artificial intelligence"
-    ]
-  },
-  {
     "title": "mitri.lol",
     "url": "https://mitri.lol",
     "source": "n/a",
@@ -820,14 +756,6 @@
     "tags": [
       "Personal site",
       "Portfolio"
-    ]
-  },
-  {
-    "title": "tbsch.de | Smart Home, Technik, Kram",
-    "url": "https://tbsch.de",
-    "source": "n/a",
-    "tags": [
-      "Personal site"
     ]
   },
   {
@@ -923,16 +851,6 @@
       "WoW",
       "World of Warcraft",
       "Blog"
-    ]
-  },
-  {
-    "title": "David Writes",
-    "url": "https://davidwrites.xyz/",
-    "source": "n/a",
-    "tags": [
-      "Personal site",
-      "Blog",
-      "Linux Admin"
     ]
   },
   {
@@ -1034,6 +952,175 @@
     "tags": [
       "Personal site",
       "Blog"
+    ]
+  },
+  {
+    "title": "Robin Fairchild",
+    "url": "https://fairchild26.github.io/",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "Paraguay4Life",
+    "url": "https://paraguay4life.com/",
+    "source": "n/a",
+    "tags": [
+      "Blog",
+      "Travel",
+      "Paraguay"
+    ]
+  },
+  {
+    "title": "www.gsking.co.uk",
+    "url": "https://www.gsking.co.uk",
+    "source": "n/a",
+    "tags": [
+      "Personal site"
+    ]
+  },
+  {
+    "title": "Story Seed Library",
+    "url": "https://storySeedLibrary.org/",
+    "source": "https://codeberg.org/alxd/storyseedlibrary",
+    "tags": [
+      "Gallery",
+      "Solarpunk",
+      "Community Project"
+    ]
+  },
+  {
+    "title": "www.azriel.id",
+    "url": "https://www.azriel.id/",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "learning",
+      "Portfolio"
+    ]
+  },
+  {
+    "title": "Douwe Zumker",
+    "url": "https://douwez.dev",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "Photography"
+    ]
+  },
+  {
+    "title": "fionnlinux.com",
+    "url": "https://fionnlinux.com",
+    "source": "https://github.com/fionnlinux/fionnlinux.com",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "Linux",
+      "Open Source"
+    ]
+  },
+  {
+    "title": "Tech Trail Pulse",
+    "url": "https://techtrailpulse.com",
+    "source": "https://github.com/gregpuzzles1/blog",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "Technology blog",
+      "Learning"
+    ]
+  },
+  {
+    "title": "Christian Living Ministries Books",
+    "url": "https://clmbooks.org",
+    "source": "https://github.com/gregpuzzles1/clmbooks",
+    "tags": [
+      "Books",
+      "PDF's",
+      "Christian devotionals"
+    ]
+  },
+  {
+    "title": "blog.nordbye.it",
+    "url": "https://blog.nordbye.it/",
+    "source": "https://github.com/mortennordbye/homelab",
+    "tags": [
+      "Technology Blog"
+    ]
+  },
+  {
+    "title": "Sebastian Zehner",
+    "url": "https://sebastianzehner.com",
+    "source": "https://github.com/sebastianzehner/blog",
+    "tags": [
+      "Personal Site",
+      "Blog",
+      "Techlab"
+    ]
+  },
+  {
+    "title": "tobydevlin.com",
+    "url": "https://tobydevlin.com",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "chandlerthompson.dev",
+    "url": "https://chandlerthompson.dev",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "scottkuperus.com",
+    "url": "https://scottkuperus.com",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "LibreLeo",
+    "url": "https://libreleo.com",
+    "source": "n/a",
+    "tags": [
+      "Blog",
+      "Personal Finance",
+      "Calculators"
+    ]
+  },
+  {
+    "title": "chius.cc",
+    "url": "https://chius.cc/",
+    "source": "https://github.com/chius-me/chius.cc",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "RussellChubb.com",
+    "url": "https://russellchubb.com",
+    "source": "n/a",
+    "tags": [
+      "Personal site"
+    ]
+  },
+  {
+    "title": "or1k.net",
+    "url": "https://or1k.net",
+    "source": "n/a",
+    "tags": [
+      "Personal site"
     ]
   }
 ]
