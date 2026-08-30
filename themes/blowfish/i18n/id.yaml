@@ -26,6 +26,7 @@ article:
   this_article: "Artikel ini"
   related_articles: "Terkait"
   reply_by_email: "Balas melalui email"
+  reply_to: "Balasan untuk {{ .Title }}"
 
 a11y:
   title: "Pengaturan aksesibilitas"
@@ -78,3 +79,10 @@ shortcode:
 
 recent:
   show_more: "Tampilkan Lainnya"
+
+cookie_notice:
+  message_with_link: "Situs web ini menggunakan cookie dan teknologi serupa. Baca kebijakan privasi kami"
+  message: "Situs web ini menggunakan cookie dan teknologi serupa. Dengan menggunakan situs web ini, Anda menyetujui hal ini."
+  privacy_policy: "kebijakan privasi kami"
+  button: "Mengerti"
+  image_alt: "Ikon cookie"
