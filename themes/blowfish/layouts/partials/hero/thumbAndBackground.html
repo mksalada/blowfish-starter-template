@@ -6,7 +6,9 @@
 {{ $background := $images.GetMatch "*background*" }}
 {{ $backgroundURL := "" }}
 
-{{ if not (or $background $backgroundURL) }}
+{{/* When the site-wide background canvas is active it already renders the
+  default background image, so only fall back to it here when disabled. */}}
+{{ if and (not (or $background $backgroundURL)) (not (site.Params.backgroundCanvas | default false)) }}
   {{ $default := site.Store.Get "defaultBackgroundImage" }}
   {{ if $default.url }}
     {{ $backgroundURL = $default.url }}
@@ -29,7 +31,7 @@
     {{ $backgroundURL = .RelPermalink }}
     {{ if not (or $disableImageOptimization (eq .MediaType.SubType "svg")) }}
       {{ $size := site.Store.Get "backgroundImageWidth" }}
-      {{ $backgroundURL = (.Resize $size).RelPermalink }}
+      {{ $backgroundURL = (partial "functions/resize.html" (dict "resource" . "spec" $size)).RelPermalink }}
     {{ end }}
   {{ end }}
 {{ end }}
@@ -37,7 +39,7 @@
 {{/* === Featured === */}}
 {{ $featured := "" }}
 {{ $featuredURL := "" }}
-{{ with .Params.featureimage }}
+{{ with partial "functions/feature-image.html" . }}
   {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
     {{ if site.Params.hotlinkFeatureImage }}
       {{ $featuredURL = . }}
@@ -45,7 +47,10 @@
       {{ $featured = resources.GetRemote . }}
     {{ end }}
   {{ else }}
-    {{ $featured = resources.Get . }}
+    {{ $featured = page.Resources.Get . }}
+    {{ if not $featured }}
+      {{ $featured = resources.Get . }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
@@ -71,15 +76,17 @@
     {{ $featuredURL = .RelPermalink }}
     {{ if not (or $disableImageOptimization (eq .MediaType.SubType "svg")) }}
       {{ $size := site.Store.Get "backgroundImageWidth" }}
-      {{ $featuredURL = (.Resize $size).RelPermalink }}
+      {{ $featuredURL = (partial "functions/resize.html" (dict "resource" . "spec" $size)).RelPermalink }}
     {{ end }}
   {{ end }}
 {{ end }}
 
-{{ $isParentList := eq (.Scratch.Get "scope") "list" }}
+{{ $scope := .Scratch.Get "scope" }}
 {{ $shouldBlur := $.Params.layoutBackgroundBlur | default (or
-  (and ($.Site.Params.article.layoutBackgroundBlur | default true) (not $isParentList))
-  (and ($.Site.Params.list.layoutBackgroundBlur | default true) ($isParentList))
+  (and ($.Site.Params.article.layoutBackgroundBlur | default true) (eq $scope "single"))
+  (and ($.Site.Params.list.layoutBackgroundBlur | default true) (eq $scope "list"))
+  (and ($.Site.Params.taxonomy.layoutBackgroundBlur | default true) (eq $scope "terms"))
+  (and ($.Site.Params.term.layoutBackgroundBlur | default true) (eq $scope "term"))
   )
 }}
 
@@ -92,11 +99,16 @@
       decoding="async"
       fetchpriority="high"
       class="w-full h-full nozoom object-cover"
-      {{ with $.Params.imagePositionFeature }}style="object-position: {{ . }};"{{ end }}>
+      {{ with $.Params.imagePositionFeature }}style="object-position: {{ . }};"{{ end }} />
   </div>
 {{ end }}
 
 
+{{/* When the site-wide background canvas is active and this hero has no
+  background image of its own, skip the fixed backdrop so the canvas shows
+  through instead of the fade-to-neutral gradients. */}}
+{{ if or $backgroundURL (not (site.Params.backgroundCanvas | default false)) }}
+{{ $.Store.Set "suppressBackgroundCanvas" true }}
 <div class="single_hero_background nozoom fixed inset-x-0 top-0 h-[800px]">
   {{ with $backgroundURL }}
     {{ $style := "" }}
@@ -112,13 +124,14 @@
       decoding="async"
       fetchpriority="high"
       class="absolute inset-0 h-full w-full object-cover"
-      {{ if $style }}style="{{ $style | safeCSS }}"{{ end }}>
+      {{ if $style }}style="{{ $style | safeCSS }}"{{ end }} />
   {{ end }}
   <div
     class="from-neutral absolute inset-0 bg-gradient-to-t to-transparent mix-blend-normal dark:from-neutral-800"></div>
   <div
     class="from-neutral to-neutral absolute inset-0 bg-gradient-to-t opacity-30 mix-blend-normal dark:from-neutral-800 dark:to-neutral-800 dark:opacity-60"></div>
 </div>
+{{ end }}
 
 {{ if $shouldBlur | default false }}
   <div
