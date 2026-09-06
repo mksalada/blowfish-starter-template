@@ -26,9 +26,12 @@ disableTextInHeader = false
 # backgroundImageWidth = 1200
 
 # defaultBackgroundImage = "IMAGE.jpg" # used as default for background images
+# backgroundCanvas = false # render defaultBackgroundImage as a fixed backdrop on every page
 # defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
 # defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
 hotlinkFeatureImage = false
+# Thumbnail aspect ratio as a number (e.g., "1.5", "1.0", "1.777")
+# thumbnailAspectRatio = "1.5"
 # imagePosition = "50% 50%"
 
 # highlightCurrentMenuArea = true
@@ -40,8 +43,19 @@ fingerprintAlgorithm = "sha512" # Valid values are "sha512" (default), "sha384",
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v11.next.forgejo.org"
 
+[languageRedirect]
+  enabled = false # Enable client-side language redirects for multilingual sites.
+  storageKey = "blowfish_preferred_language" # localStorage key for manual language selections.
+  # fallbackLanguage = "" # Language to use when no browser language matches. Defaults to Hugo's default content language.
+  browserRedirectHomeOnly = true # Restrict browser-language redirects to home pages.
+  storedLanguageRedirect = true # Redirect to the stored language when a matching translation exists.
+
+[seo]
+# metaDescriptionOrder = ["summary", "description", "site"] # Controls the fallback order for the HTML meta description. Valid values are "summary", "description", and "site".
+
 [header]
-  layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+  layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur, floating
+  # mobileMenuStyle = "fullscreen" # valid options: fullscreen, dropdown
 
 [footer]
   showMenu = true
@@ -51,7 +65,8 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showScrollToTop = true
 
 [homepage]
-  layout = "profile" # valid options: page, profile, hero, card, background, custom
+  layout = "profile" # valid options: page, profile, hero, card, background, landing, custom
+  # layoutSwitcher = false # opt-in interactive preview of the built-in layouts
   #homepageImage = "IMAGE.jpg" # used in: hero, and card
   showRecent = false
   showRecentItems = 5
@@ -84,11 +99,14 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showPagination = true
   invertPagination = false
   showReadingTime = true
+  showReadingProgress = false
   showTableOfContents = false
   # showRelatedContent = false
   # relatedContentLimit = 3
-  showTaxonomies = false # use showTaxonomies OR showCategoryOnly, not both
-  showCategoryOnly = false # use showTaxonomies OR showCategoryOnly, not both
+  showTaxonomies = false # Enable the display of taxonomies for the related article.
+  showCategories = true # These will show if showTaxonomies is true.
+  showTags = true # These will show if showTaxonomies is true.
+  showCategoriesInSecondaryColor = false # This will change the color of category badges, so the user can better distinguish between the two. Only if showTaxonomies is true.
   showAuthorsBadges = false
   showWordCount = true
   # sharingLinks = [ "linkedin", "twitter", "bluesky", "mastodon", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram", "line"]
@@ -97,6 +115,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [list]
   showHero = false
+  # featureImageHover = false # subtle zoom on card thumbnails on hover
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
@@ -119,6 +138,8 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showTermCount = true
   showHero = false
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
+  layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showViews = false
   showLikes = false
@@ -128,6 +149,8 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 [term]
   showHero = false
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
+  layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showViews = false
   showLikes = false

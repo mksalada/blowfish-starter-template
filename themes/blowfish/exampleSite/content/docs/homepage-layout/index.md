@@ -1,5 +1,6 @@
 ---
 title: "Homepage Layout"
+featureimage: "images/v3/homepage-layout.png"
 weight: 5
 draft: false
 description: "Configuring the homepage layout in the Blowfish theme."
@@ -9,7 +10,7 @@ series: ["Documentation"]
 series_order: 5
 ---
 
-Blowfish provides a fully flexible homepage layout. There are two main templates to choose from with additional settings to adjust the design. Alternatively, you can also provide your own template and have complete control over the homepage content.
+Blowfish provides flexible homepage layouts with settings to adjust each design. Alternatively, you can also provide your own template and have complete control over the homepage content.
 
 The layout of the homepage is controlled by the `homepage.layout` setting in the `params.toml` configuration file. Additionally, all layouts have the option to include a listing of [recent articles](#recent-articles).
 
@@ -57,6 +58,38 @@ The card layout is an extension of the page layout. It provides the same level o
 
 To enable the Card layout, set `homepage.layout = "card"` and `homepage.homepageImage` in the `params.toml` configuration file. 
 
+## Landing layout
+
+The Landing layout is designed for product sites, documentation hubs, and personal sites that need a stronger opening statement. It opens with a spacious, editorial hero — eyebrow, statement headline, lead paragraph, and call-to-action buttons — optionally backed by a full-width hero image that dissolves into the global background, with a staggered entrance animation that is disabled automatically for visitors who prefer reduced motion. Everything below the hero is standard Markdown and Blowfish shortcodes, so the full page stays portable and easy to maintain.
+
+{{< figure src="img/home-landing.png" class="thumbnailshadow" >}}
+
+To enable the Landing layout, set `homepage.layout = "landing"` in the `params.toml` configuration file.
+
+The hero is driven by the front matter of `content/_index.md`. All fields are optional — anything you leave out is simply not rendered:
+
+```yaml
+---
+title: "Build a site that feels unmistakably yours."
+heroCaption: "Blowfish" # eyebrow above the title; defaults to the author name
+heroLead: "A short statement that expands on the title."
+heroButtons:
+  - label: "Get started"
+    url: "/docs/installation/"
+  - label: "Explore the docs"
+    url: "/docs/"
+    style: "outline" # "primary" (default) or "outline"
+---
+```
+
+| Front matter | Description |
+| ------------ | ----------- |
+| `heroCaption` | Small uppercase eyebrow above the title. Defaults to `params.Author.name`. |
+| `heroLead` | Lead paragraph rendered under the title. Supports Markdown. |
+| `heroButtons` | List of call-to-action buttons (`label`, `url`, and optional `style`). Uses the same styling as the [`cta` shortcode]({{< ref "shortcodes#cta-button" >}}). |
+
+The Markdown body of `_index.md` renders below the hero, so stats, feature grids, steps, and any other shortcodes can build out the rest of the page. The Landing layout pairs well with the site-wide `backgroundCanvas` option described in the [Configuration docs]({{< ref "configuration" >}}).
+
 
 ## Custom layout
 
@@ -68,7 +101,7 @@ With the configuration value set, create a new `custom.html` file and place it i
 
 To include [recent articles](#recent-articles) on the custom layout, use the `recent-articles/main.html` partial.
 
-As an example, the [homepage]({{< ref "/" >}}) on this site uses the custom layout to allow toggling between the profile and page layouts. Visit the [GitHub repo](https://github.com/nunocoracao/blowfish/blob/main/exampleSite/layouts/partials/home/custom.html) to see how it works.
+The included example site uses the built-in Landing layout and standard content shortcodes. Visit the [GitHub repo](https://github.com/nunocoracao/blowfish/tree/main/exampleSite) to see how it is configured.
 
 ## Recent articles
 
