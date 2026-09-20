@@ -1,5 +1,12 @@
 {{ define "main" }}
   {{ .Scratch.Set "scope" "single" }}
+  {{ $showReadingProgress := site.Params.article.showReadingProgress | default false }}
+  {{ if isset .Params "showreadingprogress" }}
+    {{ $showReadingProgress = .Params.showReadingProgress }}
+  {{ end }}
+  {{ if $showReadingProgress }}
+    {{ partial "reading-progress.html" . }}
+  {{ end }}
   <article>
     {{/* Hero */}}
     {{ if .Params.showHero | default (site.Params.article.showHero | default false) }}
@@ -34,7 +41,7 @@
       {{ $enableToc := site.Params.article.showTableOfContents | default false }}
       {{ $enableToc = .Params.showTableOfContents | default $enableToc }}
       {{ $showToc := and $enableToc (in .TableOfContents "<ul") }}
-      {{ $topClass := cond (hasPrefix site.Params.header.layout "fixed") "lg:top-[140px]" "lg:top-10" }}
+      {{ $topClass := cond (or (hasPrefix site.Params.header.layout "fixed") (eq site.Params.header.layout "floating")) "lg:top-[140px]" "lg:top-10" }}
       {{ if $showToc }}
         <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
           <div class="toc ps-5 print:hidden lg:sticky {{ $topClass }}">
@@ -51,12 +58,13 @@
           {{ $defaultReplyByEmail := site.Params.replyByEmail }}
           {{ $replyByEmail := default $defaultReplyByEmail .Params.replyByEmail }}
           {{ if $replyByEmail }}
+            {{ $replySubject := i18n "article.reply_to" (dict "Title" .Title) | default (printf "Reply to %s" .Title) }}
             <strong class="block mt-8">
               <a
                 class="email-link m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
                 href="#"
                 data-email="{{ site.Params.Author.email | base64Encode }}"
-                data-subject="{{ replace (printf "Reply to %s" .Title) "\"" "'" }}">
+                data-subject="{{ replace $replySubject "\"" "'" }}">
                 {{ i18n "article.reply_by_email" | default "Reply by Email" }}
               </a>
               <noscript>
@@ -80,24 +88,13 @@
     {{/* Footer */}}
     <footer class="pt-8 max-w-prose print:hidden">
       {{ partial "article-pagination.html" . }}
-      {{ if .Params.showComments | default (site.Params.article.showComments | default false) }}
-        {{ if templates.Exists "partials/comments.html" }}
-          <div class="pt-3">
-            <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-            <div class="pt-3">
-              {{ partial "comments.html" . }}
-            </div>
-          </div>
-        {{ else }}
-          {{ warnf "[BLOWFISH] Comments are enabled for %s but no comments partial exists." .File.Path }}
-        {{ end }}
-      {{ end }}
+      {{ partial "article-comments.html" . }}
     </footer>
   </article>
 {{ end }}
 
 {{ define "SingleAuthor" }}
-  {{ $authorsData := site.Data.authors }}
+  {{ $authorsData := hugo.Data.authors }}
   {{ $taxonomies := site.Taxonomies.authors }}
   {{ $baseURL := site.BaseURL }}
   {{ $taxonomyLink := 0 }}
@@ -108,29 +105,31 @@
     {{ $baseURL = delimit (slice $baseURL "/") "" }}
   {{ end }}
 
-  {{ if .Params.showAuthor | default (site.Params.article.showAuthor | default true) }}
-    {{ $showAuthor = 1 }}
-    {{ partial "author.html" . }}
-  {{ end }}
-
-  {{ range $author := .Page.Params.authors }}
-    {{ $authorData := index $authorsData $author }}
-    {{- if $authorData -}}
-      {{ range $taxonomyname, $taxonomy := $taxonomies }}
-        {{ if (eq $taxonomyname $author) }}
-          {{ $taxonomyLink = delimit (slice $baseURL "authors/" $author "/") "" }}
+  {{ if .Page.Params.authors }}
+    {{ range $author := .Page.Params.authors }}
+      {{ $authorData := index $authorsData $author }}
+      {{- if $authorData -}}
+        {{ range $taxonomyname, $taxonomy := $taxonomies }}
+          {{ if (eq $taxonomyname $author) }}
+            {{ $taxonomyLink = delimit (slice $baseURL "authors/" $author "/") "" }}
+          {{ end }}
         {{ end }}
-      {{ end }}
 
-      {{ $finalLink := $taxonomyLink }}
-      {{ $currentLang := site.Language.Lang }}
-      {{ if eq site.LanguagePrefix "" }}
-        {{ $finalLink = printf "%sauthors/%s/" $baseURL $author }}
-      {{ else }}
-        {{ $finalLink = printf "%s%s/authors/%s/" $baseURL $currentLang $author }}
-      {{ end }}
-      {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $finalLink) }}
-    {{- end -}}
+        {{ $finalLink := $taxonomyLink }}
+        {{ $currentLang := site.Language.Name }}
+        {{ if eq site.LanguagePrefix "" }}
+          {{ $finalLink = printf "%sauthors/%s/" $baseURL $author }}
+        {{ else }}
+          {{ $finalLink = printf "%s%s/authors/%s/" $baseURL $currentLang $author }}
+        {{ end }}
+        {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $finalLink) }}
+      {{- end -}}
+    {{ end }}
+  {{ else }}
+    {{ if .Params.showAuthor | default (site.Params.article.showAuthor | default true) }}
+      {{ $showAuthor = 1 }}
+      {{ partial "author.html" . }}
+    {{ end }}
   {{ end }}
 
   {{ if or $taxonomyLink $showAuthor }}
