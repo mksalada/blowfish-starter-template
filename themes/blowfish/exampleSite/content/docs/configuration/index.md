@@ -3,6 +3,7 @@ title: "Configuration"
 weight: 4
 draft: false
 description: "All the configuration variables available in Blowfish."
+featureimage: "images/v3/configuration-system.png"
 slug: "configuration"
 tags: ["config", "docs"]
 series: ["Documentation"]
@@ -13,13 +14,8 @@ Blowfish is a highly customisable theme and uses some of the latest Hugo feature
 
 The theme ships with a default configuration that gets you up and running with a basic blog or static website.
 
-{{< alert "fire" >}}
-We just launched a CLI tool to help you get started with Blowfish. It will help you with installation and configuration. Install the CLI tool globally using:
-
-```bash
-npx blowfish-tools
-```
-
+{{< alert "wand-magic-sparkles" >}}
+Working with an AI coding agent? Blowfish ships an **agent skill** that teaches agents like Claude Code how to install, configure, and build with the theme — see the [installation page]({{< ref "docs/installation" >}}) to set it up.
 {{< /alert >}}
 
 > Configuration files bundled with the theme are provided in TOML format as this is the default Hugo syntax. Feel free to convert your config to YAML or JSON if you wish.
@@ -62,11 +58,33 @@ Blowfish was built so it would be easy to add visual support to your articles. I
 
 Blowfish is optimised for full multilingual websites and theme assets are translated into several languages out of the box. The language configuration allows you to generate multiple versions of your content to provide a customised experience to your visitors in their native language.
 
+### 404 page quotes
+
+The 404 page displays a random movie quote in the active site language. You can replace the bundled quotes by adding a `data/quotes404.json` file to your site. Each item needs a `line` and `source`; use `lang` to target a language. Language codes may be full codes such as `pt-PT` or base codes such as `pt`. Quotes without `lang` are treated as English for backwards compatibility.
+
+```json
+[
+  {
+    "lang": "en",
+    "line": "You shall not pass!",
+    "source": "The Fellowship of the Ring (2001)"
+  },
+  {
+    "lang": "pt-PT",
+    "line": "Não passarás!",
+    "source": "The Fellowship of the Ring (2001)"
+  }
+]
+```
+
+Blowfish tries an exact language match, then the base language, then English. If none are available, it selects from any configured quote.
+
 The theme currently supports the following languages by default:
 
 | Language                     | Code    |
 | ---------------------------- | ------- |
 | Arabic                       | `ar`    |
+| Basque                       | `eu`    |
 | Bulgarian                    | `bg`    |
 | Bengali                      | `bn`    |
 | Catalan                      | `ca`    |
@@ -115,8 +133,8 @@ The default file can be used as a template to create additional languages, or re
 <!-- prettier-ignore-start -->
 | Name | Default | Description |
 | --- | --- | --- |
-| `languageCode` | `"en"` | The Hugo language code for this file. It can be a top-level language (ie. `en`) or a sub-variant (ie. `en-au`) and should match the language code in the filename. Hugo expects this value to always be in lowercase. For proper HTML compliance, set the `isoCode` parameter which is case-sensitive. |
-| `languageName` | `"English"` | The name of the language. |
+| `locale` | `"en"` | The Hugo language code for this file. It can be a top-level language (ie. `en`) or a sub-variant (ie. `en-au`) and should match the language code in the filename. Hugo expects this value to always be in lowercase. For proper HTML compliance, set the `isoCode` parameter which is case-sensitive. |
+| `label` | `"English"` | The name of the language. |
 | `weight` | `1` | The weight determines the order of languages when building multilingual sites. |
 | `title` | `"Blowfish"` | The title of the website. This will be displayed in the site header and footer. |
 <!-- prettier-ignore-end -->
@@ -150,6 +168,21 @@ The default file can be used as a template to create additional languages, or re
 | `params.author.links` | _Not set_ | The links to display alongside the author's details. The config file contains example links which can simply be uncommented to enable. The order that the links are displayed is determined by the order they appear in the array. Custom links can be added by providing corresponding SVG icon assets in `assets/icons/`. |
 <!-- prettier-ignore-end -->
 
+### Client-side language redirect
+
+Blowfish can optionally redirect visitors to a matching translated page entirely in the browser. The feature is disabled by default, requires no server-side component, and uses `localStorage` instead of cookies to remember language choices made through the existing language dropdown.
+
+When enabled, the browser-language redirect runs only on home pages by default. If none of the visitor's browser languages match an available translation, Blowfish can redirect to `fallbackLanguage` when that translation exists. If `fallbackLanguage` is not set, Blowfish uses Hugo's default content language. A language chosen manually from the dropdown is stored and preferred on later visits when the current page has a matching translated URL.
+
+```toml
+[languageRedirect]
+  enabled = false
+  storageKey = "blowfish_preferred_language"
+  # fallbackLanguage = "en"
+  browserRedirectHomeOnly = true
+  storedLanguageRedirect = true
+```
+
 ### Menus
 
 Blowfish also supports language-specific menu configurations. Menu config files follow the same naming format as the languages file. Simply provide the language code in the file name to tell Hugo which language the file relates to.
@@ -170,7 +203,7 @@ Many of the article defaults here can be overridden on a per article basis by sp
 
 | Name | Default | Description |
 | --- | --- | --- |
-| `colorScheme` | `"blowfish"` | The theme colour scheme to use. Valid values are `blowfish` (default), `avocado`, `fire`, `ocean`, `forest`, `princess`, `neon`, `bloody`, `terminal`, `marvel`, `noir`, `autumn`, `congo`, `slate`, `github`, and `one-light`. Refer to the [Colour Schemes]({{< ref "getting-started#colour-schemes" >}}) section for more details. |
+| `colorScheme` | `"blowfish"` | The theme colour scheme to use. Valid values are `blowfish` (default), `avocado`, `burufugu`, `fire`, `ocean`, `forest`, `princess`, `neon`, `bloody`, `terminal`, `marvel`, `noir`, `autumn`, `congo`, `slate`, `github`, and `one-light`. Refer to the [Colour Schemes]({{< ref "getting-started#colour-schemes" >}}) section for more details. |
 | `defaultAppearance` | `"light"` | The default theme appearance, either `light` or `dark`. |
 | `autoSwitchAppearance` | `true` | Whether the theme appearance automatically switches based upon the visitor's operating system preference. Set to `false` to force the site to always use the `defaultAppearance`. |
 | `enableA11y`                   | `false`      | Whether to enable the accessibility toggle button. |
@@ -185,12 +218,14 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `showViews` | _Not set_ | Whether or not articles and list views are displayed. This requires firebase integrations to be enabled, look below. |
 | `showLikes` | _Not set_ | Whether or not articles and list likes are displayed. This requires firebase integrations to be enabled, look below. |
 | `robots` | _Not set_ | String that indicates how robots should handle your site. If set, it will be output in the page head. Refer to [Google's docs](https://developers.google.com/search/docs/advanced/robots/robots_meta_tag#directives) for valid values. |
+| `seo.metaDescriptionOrder` | `["summary", "description", "site"]` | Controls the fallback order for the HTML meta description. Valid values are `summary`, `description`, and `site`. Use `["description", "summary", "site"]` if you want front matter `description` to take precedence over `summary`. |
 | `disableImageZoom` | `false` | Disables image zoom feature across all the images in the site. |
 | `disableImageOptimization` | `false` | Disables image resize and optimization features across all the images in the site, except images using markdown syntax (`![](image.jpg)`) |
 | `disableImageOptimizationMD` | `false` | Disables image resize and optimization features only for images using markdown syntax (`![](image.jpg)`). |
 | `backgroundImageWidth` | `1200` | Width (in pixels) to scale background images to. |
 | `disableTextInHeader` | `false` | Disables text in header, useful for logo based headers. |
 | `defaultBackgroundImage` | _Not set_ | Default background image for both `background` homepage layout and `background` hero style |
+| `backgroundCanvas` | `false` | When `true`, renders `defaultBackgroundImage` as a fixed full-viewport backdrop behind every page. Pages whose hero paints its own fixed background (for example the `background` hero style with a feature image) automatically suppress the canvas, and heroes no longer fall back to `defaultBackgroundImage` since the canvas already displays it. |
 | `defaultFeaturedImage` | _Not set_ | Default background image for all `featured` images across articles, will be overridden by a local `featured` image. |
 | `defaultSocialImage` | _Not set_ | Default image for social media sharing (Open Graph and Twitter). Will be overridden by a local `feature` image. |
 | `hotlinkFeatureImage` | `false` | Hotlink external images in article feature images and article cards. Those images will not be processed by Hugo. |
@@ -199,12 +234,19 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `smartTOC` | _Not set_ | Activate smart Table of Contents, items in view will be highlighted. |
 | `smartTOCHideUnfocusedChildren` | _Not set_ | When smart Table of Contents is turned on, this will hide deeper levels of the table when they are not in focus. |
 | `fingerprintAlgorithm` | `"sha512"` | Hash algorithm for CSS/JS file fingerprinting to prevent browser caching issues. Valid values are `sha512` (default), `sha384`, `sha256`. |
+| `languageRedirect.enabled` | `false` | Enables client-side language redirects for multilingual sites. Disabled by default for backwards compatibility. |
+| `languageRedirect.storageKey` | `"blowfish_preferred_language"` | The `localStorage` key used to persist manual language dropdown selections. |
+| `languageRedirect.fallbackLanguage` | Hugo's default content language | Language to redirect to when no browser language matches and that language has a translation for the current page. |
+| `languageRedirect.browserRedirectHomeOnly` | `true` | Restricts browser-language redirects to home pages to avoid surprising visitors who open deep links. |
+| `languageRedirect.storedLanguageRedirect` | `true` | Allows a stored manual language selection to redirect translated pages when a matching translation exists. |
 
 ### Header
 
 | Name | Default | Description |
 | --- | --- | --- |
-| `header.layout` | `"basic"` | Defines the header for the entire site, supported values are `basic`, `fixed`, `fixed-fill`, and `fixed-fill-blur`. |
+| `header.layout` | `"basic"` | Defines the header for the entire site, supported values are `basic`, `fixed`, `fixed-fill`, `fixed-fill-blur`, `fixed-gradient`, and `floating`. |
+| `header.mobileMenuStyle` | `"fullscreen"` | Defines the mobile menu presentation. Set to `"dropdown"` for a compact menu anchored below the header. |
+| `list.featureImageHover` | `false` | Adds a subtle zoom transition when a visitor hovers a post or related-content card. Individual pages can override this with `featureImageHover` in front matter. |
 
 ### Footer
 
@@ -220,7 +262,8 @@ Many of the article defaults here can be overridden on a per article basis by sp
 
 | Name | Default | Description |
 | --- | --- | --- |
-| `homepage.layout` | `"profile"` | The layout of the homepage. Valid values are `page`, `profile`, `hero`, `card`, `background`, or `custom`. When set to `custom`, you must provide your own layout by creating a `/layouts/partials/home/custom.html` file. Refer to the [Homepage Layout]({{< ref "homepage-layout" >}}) section for more details. |
+| `homepage.layout` | `"profile"` | The layout of the homepage. Valid values are `page`, `profile`, `hero`, `card`, `background`, `landing`, or `custom`. When set to `custom`, you must provide your own layout by creating a `/layouts/partials/home/custom.html` file. Refer to the [Homepage Layout]({{< ref "homepage-layout" >}}) section for more details. |
+| `homepage.layoutSwitcher` | `false` | Renders an interactive, in-place preview switcher for the built-in homepage layouts. Intended for demos and design review because it renders every preview layout. |
 | `homepage.homepageImage` | _Not set_ | Image to be used in `hero` and `card` layouts. Can be set as local image from asset directory or external image url. Refer to the [Homepage Layout]({{< ref "homepage-layout" >}}) section for more details. |
 | `homepage.showRecent` | `false` | Whether or not to display the recent articles list on the homepage. |
 | `homepage.showRecentItems` | 5 | How many articles to display if showRecent is true. If variable is set to 0 or if it isn't defined the system will default to 5 articles. |
@@ -244,8 +287,8 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `article.showAuthorBottom` | `false` | Author boxes are displayed at the bottom of each page instead of the top. |
 | `article.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each article page. |
 | `article.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `article.showHero = true`. |
-| `article.layoutBackgroundBlur` | `true` | Makes the background image in the background article heroStyle blur with the scroll |
-| `article.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. |
+| `article.layoutBackgroundBlur` | `true` | Makes the background image in the background article heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `article.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `article.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the article header. |
 | `article.showDraftLabel` | `true` | Whether or not the draft indicator is shown next to articles when site is built with `--buildDrafts`. |
 | `article.showEdit` | `false` | Whether or not the link to edit the article content should be displayed. |
@@ -256,11 +299,14 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `article.showPagination` | `true` | Whether or not the next/previous article links are displayed in the article footer. |
 | `article.invertPagination` | `false` | Whether or not to flip the direction of the next/previous article links. |
 | `article.showReadingTime` | `true` | Whether or not article reading times are displayed. |
+| `article.showReadingProgress` | `false` | When set to `true` a reading progress bar is displayed at the top of articles. |
 | `article.showTableOfContents` | `false` | Whether or not the table of contents is displayed on articles. |
 | `article.showRelatedContent` | `false` | Display related content for each post. Might required additional configuration to your `hugo.toml`. Please check the theme `hugo.toml` if you want to enable this feature and copy all the relevant _related_ entries. Also check [Hugo's docs](https://gohugo.io/content-management/related/) on related content. |
 | `article.relatedContentLimit` | `3` | Limit of related articles to display if `showRelatedContent` is turned on. |
 | `article.showTaxonomies` | `false` | Whether or not all the taxonomies related to this article are displayed. |
-| `article.showCategoryOnly` | `false` | Whether or not the "category" taxonomy is displayed. `showTaxonomies` should be `false` when this param is used, otherwise duplicates will appear. |
+| `article.showCategories` | `true` | Whether or not the `category` taxonomies are displayed. Requires `showTaxonomies` to be `true`. |
+| `article.showTags` | `true` | Whether or not the `tag` taxonomies are displayed. Requires `showTaxonomies` to be `true`. |
+| `article.showCategoriesInSecondaryColor` | `false` | This will make the `category` taxonomy badges to show in a secondary color, so the user can better distinguish between categories and tags. Requires `showTaxonomies` to be `true`. |
 | `article.showAuthorsBadges` | `false` | Whether the `authors` taxonomies are are displayed in the article or list header. This requires the setup of `multiple authors` and the `authors` taxonomy. Check [this page]({{< ref "multi-author" >}}) for more details on how to configure that feature. |
 | `article.showWordCount` | `false` | Whether or not article word counts are displayed. |
 | `article.showComments` | `false` | Whether or not the [comments partial]({{< ref "partials#comments" >}}) is included after the article footer. |
@@ -274,9 +320,9 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | --- | --- | --- |
 | `list.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each list page. |
 | `list.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `list.showHero = true`. |
+| `list.layoutBackgroundBlur` | `true` | Makes the background image in the background list heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `list.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `list.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the header on list pages. |
-| `list.layoutBackgroundBlur` | `true` | Makes the background image in the background list heroStyle blur with the scroll |
-| `list.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. |
 | `list.showTableOfContents` | `false` | Whether or not the table of contents is displayed on list pages. |
 | `list.showSummary` | `false` | Whether or not article summaries are displayed on list pages. If a summary is not provided in the [front matter]({{< ref "front-matter" >}}), one will be auto generated using the `summaryLength` parameter in the [site configuration](#site-configuration). |
 | `list.showViews` | `false` | Whether or not list views are displayed. This requires firebase integrations to be enabled, look below. |
@@ -302,6 +348,8 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `taxonomy.showTermCount` | `true` | Whether or not the number of articles within a taxonomy term is displayed on the taxonomy listing. |
 | `taxonomy.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each taxonomy page. |
 | `taxonomy.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `taxonomy.showHero = true`. |
+| `taxonomy.layoutBackgroundBlur` | `true` | Makes the background image in the background taxonomy heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `taxonomy.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `taxonomy.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the taxonomy header. |
 | `taxonomy.showViews` | `false` | Whether or not article views are displayed. This requires firebase integrations to be enabled, look below. |
 | `taxonomy.showLikes` | `false` | Whether or not article likes are displayed. This requires firebase integrations to be enabled, look below. |
@@ -314,6 +362,8 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | --- | --- | --- |
 | `term.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each term page. |
 | `term.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `term.showHero = true`. |
+| `term.layoutBackgroundBlur` | `true` | Makes the background image in the background term heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `term.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `term.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the term header. |
 | `term.showViews` | `false` | Whether or not article views are displayed. This requires firebase integrations to be enabled, look below. |
 | `term.showLikes` | `false` | Whether or not article likes are displayed. This requires firebase integrations to be enabled, look below. |
