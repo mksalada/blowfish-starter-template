@@ -26,6 +26,7 @@ article:
   this_article: "この記事"
   related_articles: "関連記事"
   reply_by_email: "メールで返信"
+  reply_to: "{{ .Title }} への返信"
   zen_mode_title:
     enable: "Zenモードを有効にする"
     disable: "Zenモードを無効にする"
@@ -101,3 +102,10 @@ admonition:
   tip: ヒント
   todo: TODO
   warning: 警告
+
+cookie_notice:
+  message_with_link: "このウェブサイトはCookieおよび類似の技術を使用しています。プライバシーポリシーをお読みください"
+  message: "このウェブサイトはCookieおよび類似の技術を使用しています。このウェブサイトを利用することで、これに同意したものとみなされます。"
+  privacy_policy: "プライバシーポリシー"
+  button: "了解しました"
+  image_alt: "Cookie アイコン"
