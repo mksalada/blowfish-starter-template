@@ -26,6 +26,7 @@ article:
   this_article: "This Article"
   related_articles: "Related"
   reply_by_email: "Ответить по электронной почте"
+  reply_to: "Ответ на {{ .Title }}"
 
 a11y:
   title: "Настройки доступности"
@@ -78,3 +79,10 @@ shortcode:
 
 recent:
   show_more: "Показать еще"
+
+cookie_notice:
+  message_with_link: "Этот сайт использует файлы cookie и аналогичные технологии. Прочитайте нашу политику конфиденциальности"
+  message: "Этот сайт использует файлы cookie и аналогичные технологии. Используя этот сайт, вы принимаете это."
+  privacy_policy: "политикой конфиденциальности"
+  button: "Понятно"
+  image_alt: "Значок cookie"
