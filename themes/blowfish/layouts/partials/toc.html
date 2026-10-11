@@ -8,7 +8,7 @@
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
-    {{ .TableOfContents | emojify }}
+    {{ replace (.TableOfContents | emojify) `id="TableOfContents"` (printf `id="TableOfContents" aria-label="%s"` (i18n "article.table_of_contents")) | safeHTML }}
   </div>
 </details>
 <details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
@@ -18,7 +18,7 @@
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
-    {{ .TableOfContents | emojify }}
+    {{ replace (.TableOfContents | emojify) `id="TableOfContents"` (printf `id="TableOfContentsMobile" aria-label="%s"` (i18n "article.table_of_contents")) | safeHTML }}
   </div>
 </details>
 
@@ -36,6 +36,21 @@
     let isJumpingToAnchor = false
 
     function getActiveAnchorId(anchors, offsetRatio) {
+      // On a page short enough that it never scrolls, scroll position can
+      // never change, so the loop below can never pick a different entry.
+      // Clicking a TOC entry still changes the hash, so fall back to that
+      // when scrolling can't answer the question at all - honoured only if
+      // it names an entry the TOC actually lists, so an unrelated hash
+      // doesn't fake a match. Pages that do scroll are unaffected.
+      const canScroll =
+        document.documentElement.scrollHeight > window.innerHeight + 1
+      if (!canScroll) {
+        const fromHash = decodeURIComponent(window.location.hash.substring(1))
+        const known = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+          .map(link => decodeURIComponent(link.getAttribute('href').substring(1)))
+        if (fromHash && known.includes(fromHash)) return fromHash
+      }
+
       const threshold = window.scrollY + window.innerHeight * offsetRatio
       const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
       const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))

@@ -1,29 +1,44 @@
 ---
-title: "Welcome to Blowfish! :tada:"
-description: "This page was built using the Blowfish theme for Hugo."
+title: "Build a site that feels unmistakably yours."
+description: "A modern, flexible Hugo theme for blogs, documentation, portfolios, and more."
+lastmod: 2026-08-30
+heroLead: "Blowfish gives you expressive layouts, thoughtful defaults, and practical content building blocks, so you can focus on the thing you want to say."
+heroButtons:
+  - label: "Get started"
+    url: "/docs/installation/"
+  - label: "Explore the docs"
+    url: "/docs/"
+    style: "outline"
+  - label: "Star on GitHub"
+    url: "https://github.com/nunocoracao/blowfish"
+    style: "outline"
+    github: "nunocoracao/blowfish"
+heroImage: "images/v3/welcome.png"
 ---
 
+{{< stats >}}
+{{< stat value="5" label="Homepage layouts" >}}Choose the structure that suits the site you are making.{{< /stat >}}
+{{< stat value="40+" label="Shortcodes" >}}Compose expressive content without maintaining one-off templates.{{< /stat >}}
+{{< stat value="100%" label="Your content" >}}Portable Markdown, familiar Hugo configuration, and no lock-in.{{< /stat >}}
+{{< /stats >}}
 
-<div class="flex px-4 py-2 mb-8 text-base rounded-md bg-primary-100 dark:bg-primary-900">
-  <span class="flex items-center pe-3 text-primary-400">
-    {{< icon "triangle-exclamation" >}}
-  </span>
-  <span class="flex items-center justify-between grow dark:text-neutral-300">
-    <span class="prose dark:prose-invert">This is a demo of the <code id="layout">background</code> layout.</span>
-    <button
-      id="switch-layout-button"
-      class="px-4 mx-[3px] !text-neutral !no-underline rounded-md bg-primary-600 hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
-    >
-      Switch layout &orarr;
-    </button>
-  </span>
-</div>
+{{< feature-grid >}}
+{{< feature icon="list-check" title="Make it yours" url="/docs/configuration/" >}}
+A coherent system of layouts, colours, typography, and content controls.
+{{< /feature >}}
+{{< feature icon="code" title="Compose faster" url="/docs/shortcodes/" label="Browse shortcodes" >}}
+Useful components for richer stories, clearer documentation, and less custom glue.
+{{< /feature >}}
+{{< feature icon="heart" title="Made in the open" url="/users/" >}}
+Explore real sites, community contributions, and patterns that hold up in production.
+{{< /feature >}}
+{{< feature icon="wand-magic-sparkles" title="Built for AI agents" url="/docs/installation/#agent-skill" label="Install the skill" >}}
+Blowfish ships an agent skill that teaches Claude Code and other coding agents how to install, configure, and build with the theme.
+{{< /feature >}}
+{{< /feature-grid >}}
 
+{{< alert >}}
+**Blowfish v3.5 is available.** Start a new site with `npx blowfish-tools new <site>` or [upgrade an existing site]({{< ref "guides/202608-upgrade-to-blowfish-v3" >}}).
 
-```shell
-npx blowfish-tools
-```  
-
-{{< youtubeLite id="SgXhGb-7QbU" label="Blowfish-tools demo" >}}
-
-
+**Working with a coding agent?** In Claude Code, run `/plugin marketplace add nunocoracao/blowfish`, then `/plugin install blowfish@blowfish`. For another agent that reads project skills, copy the [`blowfish` skill folder](https://github.com/nunocoracao/blowfish/tree/main/.claude/skills/blowfish) into your site at `.claude/skills/blowfish/`.
+{{< /alert >}}
