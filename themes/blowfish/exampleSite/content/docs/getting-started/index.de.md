@@ -13,25 +13,21 @@ series_order: 3
 Dieser Abschnitt setzt voraus, dass Sie das [Blowfish-Theme bereits installiert]({{< ref "docs/installation" >}}) haben.
 {{< /alert >}}
 
-</br>
-{{< alert "fire" >}}
-Wir haben gerade ein CLI-Tool veröffentlicht, das Ihnen beim Einstieg mit Blowfish hilft. Es unterstützt Sie bei Installation und Konfiguration. Installieren Sie das CLI-Tool global mit:
-```bash
-npx blowfish-tools
-```
+{{< alert "wand-magic-sparkles" >}}
+Arbeitest du mit einem KI-Coding-Agent? Blowfish enthält einen **Agent-Skill**, der Agents wie Claude Code beibringt, das Theme zu installieren, zu konfigurieren und damit zu arbeiten — die Einrichtung ist auf der [Installationsseite]({{< ref "docs/installation" >}}) beschrieben.
 {{< /alert >}}
 
 Die mit Blowfish gelieferten Konfigurationsdateien enthalten alle möglichen Einstellungen, die das Theme erkennt. Standardmäßig sind viele davon auskommentiert, aber Sie können sie einfach einkommentieren, um eine bestimmte Funktion zu aktivieren oder zu ändern.
 
 ## Grundkonfiguration
 
-Bevor Sie Inhalte erstellen, sollten Sie für eine neue Installation einige Dinge festlegen. Beginnen Sie in der Datei `hugo.toml` und setzen Sie die Parameter `baseURL` und `languageCode`. Der `languageCode` sollte auf die Hauptsprache eingestellt werden, in der Sie Ihre Inhalte verfassen werden.
+Bevor Sie Inhalte erstellen, sollten Sie für eine neue Installation einige Dinge festlegen. Beginnen Sie in der Datei `hugo.toml` und setzen Sie die Parameter `baseURL` und `locale`. Der `locale` sollte auf die Hauptsprache eingestellt werden, in der Sie Ihre Inhalte verfassen werden.
 
 ```toml
 # config/_default/hugo.toml
 
 baseURL = "https://your_domain.com/"
-languageCode = "de"
+locale = "de"
 ```
 
 Der nächste Schritt ist die Konfiguration der Spracheinstellungen. Obwohl Blowfish mehrsprachige Setups unterstützt, konfigurieren Sie vorerst nur die Hauptsprache.
@@ -39,7 +35,7 @@ Der nächste Schritt ist die Konfiguration der Spracheinstellungen. Obwohl Blowf
 Suchen Sie die Datei `languages.en.toml` im Konfigurationsordner. Wenn Ihre Hauptsprache Englisch ist, können Sie diese Datei so verwenden, wie sie ist. Andernfalls benennen Sie sie um, sodass sie den richtigen Sprachcode im Dateinamen enthält. Für Deutsch benennen Sie die Datei beispielsweise in `languages.de.toml` um.
 
 {{< alert >}}
-Beachten Sie, dass der Sprachcode im Dateinamen der Sprachkonfiguration mit der Einstellung `languageCode` in `hugo.toml` übereinstimmen sollte.
+Beachten Sie, dass der Sprachcode im Dateinamen der Sprachkonfiguration mit der Einstellung `locale` in `hugo.toml` übereinstimmen sollte.
 {{< /alert >}}
 
 ```toml
