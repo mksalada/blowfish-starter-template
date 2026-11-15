@@ -13,25 +13,21 @@ series_order: 3
 本节内容需要已经阅读了 [安装 Blowfish 主题]({{< ref "docs/installation" >}})。
 {{< /alert >}}
 
-</br>
-{{< alert "fire" >}}
-我们刚刚推出了一个 CLI 工具，用来帮助你快速开始 Blowfish。 它将帮助你安装和配置 Blowfish 主题。 可以使用以下命令全局安装 CLI 工具：
-```bash
-npx blowfish-tools
-```
+{{< alert "wand-magic-sparkles" >}}
+在使用 AI 编程智能体？Blowfish 附带一个**智能体技能**，可以教 Claude Code 等智能体如何安装、配置和使用本主题 — 请参阅[安装页面]({{< ref "docs/installation" >}})进行设置。
 {{< /alert >}}
 
 Blowfish 中的配置文件中包含了主题需要的所有可能的设置选项。但默认情况下大多数设置都是被注释的，你只需要取消注释就可以激活或者修改设定选项。
 
 ## 基础设置
 
-在刚刚安装完成，创建内容之前，有几个设置需要关注。从 `hugo.toml` 开始，设置 `baseURL` 和 `languageCode` 参数。`languageCode`参数是用来指定你创作内容的主要语言。
+在刚刚安装完成，创建内容之前，有几个设置需要关注。从 `hugo.toml` 开始，设置 `baseURL` 和 `locale` 参数。`locale`参数是用来指定你创作内容的主要语言。
 
 ```toml
 # config/_default/hugo.toml
 
 baseURL = "https://your_domain.com/"
-languageCode = "en"
+locale = "en"
 ```
 
 下一步是设置语言。尽管 Blowfish 支持多语言，但是 `hugo.toml` 只能配置一个主语言。
@@ -39,7 +35,7 @@ languageCode = "en"
 在 `config/_default` 文件夹中找到 `languages.en.toml`。如果你的主语言是英语，你可以直接使用此文件。否则需要重命名为主语言对应的文件名。例如，如果主语言是法语，那么需要将文件命名为 `languages.fr.toml`。
 
 {{< alert >}}
-注意：语言配置文件名中的语言代码需要与 `hugo.toml` 中 `languageCode` 相匹配。
+注意：语言配置文件名中的语言代码需要与 `hugo.toml` 中 `locale` 相匹配。
 {{< /alert >}}
 
 ```toml

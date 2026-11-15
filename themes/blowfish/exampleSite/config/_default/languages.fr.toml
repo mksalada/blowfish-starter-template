@@ -1,5 +1,5 @@
-languageCode = "fr"
-languageName = "Français"
+locale = "fr"
+label = "Français"
 weight = 2
 title = "Blowfish"
 
@@ -19,4 +19,5 @@ title = "Blowfish"
   links = [
     { x-twitter = "https://twitter.com/burufugu" },
     { github = "https://github.com/nunocoracao/blowfish" },
+    { bluesky = "https://bsky.app/profile/burufugu.bsky.social" },
   ]

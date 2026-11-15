@@ -13,12 +13,8 @@ series_order: 3
 Questa sezione presuppone che tu abbia già [installato il tema Blowfish]({{< ref "docs/installation" >}}).
 {{< /alert >}}
 
-</br>
-{{< alert "fire" >}}
-Abbiamo appena lanciato uno strumento CLI per aiutarvi a iniziare con Blowfish. Vi aiuterà con l'installazione e la configurazione. Installate lo strumento CLI a livello globale utilizzando:
-```bash
-npx blowfish-tools
-```
+{{< alert "wand-magic-sparkles" >}}
+Lavori con un agente di programmazione IA? Blowfish include una **skill per agenti** che insegna ad agenti come Claude Code a installare, configurare e usare il tema — consulta la [pagina di installazione]({{< ref "docs/installation" >}}) per configurarla.
 {{< /alert >}}
 
 I file di configurazione forniti con Blowfish contengono tutte le possibili impostazioni riconosciute dal tema. Per impostazione predefinita, molti di questi sono commentati ma puoi semplicemente decommentarli per attivare o modificare una funzionalità specifica.
@@ -32,7 +28,7 @@ Prima di creare qualsiasi contenuto, è necessario impostare alcune cose per una
 # config/_default/hugo.toml
 
 baseURL = "https://your_domain.com/"
-languageCode = "en"
+locale = "en"
 ```
 
 Il passo successivo è configurare le impostazioni della lingua. Sebbene Blowfish supporti le configurazioni multilingue, per ora basta configurare la lingua principale.
@@ -41,7 +37,7 @@ Individua il file "languages.en.toml" nella cartella di configurazione. Se la tu
 
 {{< alert >}}
 
-Tieni presente che il codice della lingua nel nome del file di configurazione della lingua deve corrispondere all'impostazione "languageCode" in "hugo.toml".
+Tieni presente che il codice della lingua nel nome del file di configurazione della lingua deve corrispondere all'impostazione "locale" in "hugo.toml".
 
 {{< /alert >}}
 
