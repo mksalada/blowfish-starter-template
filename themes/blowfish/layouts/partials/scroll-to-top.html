@@ -1,12 +1,16 @@
 {{ $isRTL := .Site.Params.rtl | default false }}
-{{ $coffeeIsRight := and (eq (lower site.Params.buymeacoffee.globalWidgetPosition) "right") .Site.Params.buymeacoffee.globalWidget }}
+{{ $coffeeIsRight := and (eq (lower .Site.Params.buymeacoffee.globalWidgetPosition) "right") .Site.Params.buymeacoffee.globalWidget }}
 {{ if not $coffeeIsRight }}
   {{ $coffeeIsRight = false }}
 {{ end }}
 
 {{ $needAvoidCoffee := ne $coffeeIsRight $isRTL }}
-{{ $toTopYOffset := cond $needAvoidCoffee "bottom-24" "bottom-6" }}
 
+{{ $kofiEnabled := and (.Site.Params.kofi.globalWidget | default false) .Site.Params.kofi.identifier }}
+{{ $needAvoidKofi := and $kofiEnabled $isRTL }}
+{{ $needExtraOffset := or $needAvoidCoffee $needAvoidKofi }}
+
+{{ $toTopYOffset := cond $needExtraOffset "bottom-24" "bottom-6" }}
 
 <div
   id="scroll-to-top"

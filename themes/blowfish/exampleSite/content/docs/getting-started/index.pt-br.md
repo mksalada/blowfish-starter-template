@@ -13,25 +13,21 @@ series_order: 3
 Esta seção assume que você já [instalou o tema Blowfish]({{< ref "docs/installation" >}}).
 {{< /alert >}}
 
-</br>
-{{< alert "fire" >}}
-Acabamos de lançar uma ferramenta CLI para ajudá-lo a começar com o Blowfish. Ela ajudará com a instalação e configuração. Instale a ferramenta CLI globalmente usando:
-```bash
-npx blowfish-tools
-```
+{{< alert "wand-magic-sparkles" >}}
+Trabalha com um agente de programação com IA? O Blowfish inclui uma **skill para agentes** que ensina agentes como o Claude Code a instalar, configurar e trabalhar com o tema — veja a [página de instalação]({{< ref "docs/installation" >}}) para configurá-la.
 {{< /alert >}}
 
 Os arquivos de configuração que acompanham o Blowfish contêm todas as configurações possíveis que o tema reconhece. Por padrão, muitas delas estão comentadas, mas você pode simplesmente descomentá-las para ativar ou alterar uma funcionalidade específica.
 
 ## Configuração básica
 
-Antes de criar qualquer conteúdo, há algumas coisas que você deve configurar para uma nova instalação. Começando no arquivo `hugo.toml`, defina os parâmetros `baseURL` e `languageCode`. O `languageCode` deve ser definido para o idioma principal que você usará para escrever seu conteúdo.
+Antes de criar qualquer conteúdo, há algumas coisas que você deve configurar para uma nova instalação. Começando no arquivo `hugo.toml`, defina os parâmetros `baseURL` e `locale`. O `locale` deve ser definido para o idioma principal que você usará para escrever seu conteúdo.
 
 ```toml
 # config/_default/hugo.toml
 
 baseURL = "https://your_domain.com/"
-languageCode = "pt-br"
+locale = "pt-br"
 ```
 
 O próximo passo é configurar as definições de idioma. Embora o Blowfish suporte configurações multilíngues, por enquanto, apenas configure o idioma principal.
@@ -39,7 +35,7 @@ O próximo passo é configurar as definições de idioma. Embora o Blowfish supo
 Localize o arquivo `languages.en.toml` na pasta de configuração. Se seu idioma principal for inglês, você pode usar este arquivo como está. Caso contrário, renomeie-o para incluir o código de idioma correto no nome do arquivo. Por exemplo, para português brasileiro, renomeie o arquivo para `languages.pt-br.toml`.
 
 {{< alert >}}
-Note que o código de idioma no nome do arquivo de configuração de idioma deve corresponder à configuração `languageCode` em `hugo.toml`.
+Note que o código de idioma no nome do arquivo de configuração de idioma deve corresponder à configuração `locale` em `hugo.toml`.
 {{< /alert >}}
 
 ```toml
